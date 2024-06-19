@@ -16,7 +16,7 @@ export default defineConfig({
     manifest: {
       name: "khusan umbrella app",
       short_name: "khusan umbrella",
-      start_url: "/",
+      start_url: "/postings",
       display: "standalone",
       description: "A description for your application",
       lang: " The default language of your application",
