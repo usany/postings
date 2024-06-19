@@ -17,6 +17,7 @@ export default defineConfig({
       name: "khusan umbrella app",
       short_name: "khusan umbrella",
       start_url: "/postings/",
+      scope: "/postings/",
       display: "standalone",
       description: "A description for your application",
       lang: " The default language of your application",
