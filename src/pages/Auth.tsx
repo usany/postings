@@ -91,8 +91,10 @@ function Auth({ newAccount, setNewAccount }) {
         </div>
       </form>
       <div className='flex justify-center'>
-        {newAccount.account && <Button variant='outlined' onClick={onSocialClick}>구글로 회원가입</Button>}
-        {!newAccount.account && <Button variant='outlined' onClick={onSocialClick}>구글로 로그인</Button>}
+        {newAccount.account && <Button variant='outlined' name='g' onClick={onSocialClick}>구글로 회원가입</Button>}
+        {!newAccount.account && <Button variant='outlined' name='g' onClick={onSocialClick}>구글로 로그인</Button>}
+        {newAccount.account && <Button variant='outlined' name='h' onClick={onSocialClick}>깃허브로 회원가입</Button>}
+        {!newAccount.account && <Button variant='outlined' name='h' onClick={onSocialClick}>깃허브로 로그인</Button>}
         <Button variant='outlined' onClick={toggleAccount}>{newAccount.account ? '로그인' : '회원가입'}</Button>
       </div>
     </div>

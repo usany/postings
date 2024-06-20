@@ -1,4 +1,4 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
@@ -23,15 +23,25 @@ const auth = getAuth(app);
 const dbservice = getFirestore(app);
 const storage = getStorage();
 
-const onSocialClick = async (event) => {
+const onSocialClick = (event) => {
     const {
         target: {name},
     } = event;
-    const provider = new GoogleAuthProvider();
+    let provider
+    if (name === 'g') {
+        provider = new GoogleAuthProvider();
+    } else {
+        provider = new GithubAuthProvider();
+    }
     signInWithPopup(auth, provider)
     .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
+        let credential
+        if (name === 'g') {
+            credential = GoogleAuthProvider.credentialFromResult(result)
+        } else {
+            credential = GithubAuthProvider.credentialFromResult(result)
+        }
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
@@ -44,7 +54,12 @@ const onSocialClick = async (event) => {
         // The email of the user's account used.
         const email = error.customData.email;
         // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        let credential
+        if (name === 'g') {
+            credential = GoogleAuthProvider.credentialFromError(error);
+        } else {
+            credential = GithubAuthProvider.credentialFromError(error);
+        }
         // ...
     });
 }
