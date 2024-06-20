@@ -57,19 +57,19 @@ function Auth({ newAccount, setNewAccount }) {
     }
   }
 
-  const onRound = (round) => {
-    if (round === 0) {
-      setNewAccount({
-        ...newAccount,
-        round: newAccount.round+1
-      })
-    } else if (round === 1) {
-      setNewAccount({
-        ...newAccount,
-        round: newAccount.round-1
-      })
-    }
-  }
+  // const onRound = (round) => {
+  //   if (round === 0) {
+  //     setNewAccount({
+  //       ...newAccount,
+  //       round: newAccount.round+1
+  //     })
+  //   } else if (round === 1) {
+  //     setNewAccount({
+  //       ...newAccount,
+  //       round: newAccount.round-1
+  //     })
+  //   }
+  // }
   
   const toggleAccount = () => setNewAccount({
     ...newAccount,

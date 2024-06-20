@@ -23,7 +23,7 @@ const auth = getAuth(app);
 const dbservice = getFirestore(app);
 const storage = getStorage();
 
-const onSocialClick = (event) => {
+const onSocialClick = async (event) => {
     const {
         target: {name},
     } = event;
