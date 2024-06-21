@@ -175,7 +175,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
             // className='nav-padding' 
             // onClick={() => setCheck(false)}
             >
-              <Modes/>
+              <Modes setCheck={setCheck}/>
             </h5>
             <h1 
             // className='nav-padding'

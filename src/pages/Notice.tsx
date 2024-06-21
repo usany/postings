@@ -10,13 +10,13 @@ function Notice({ isLoggedIn, userObj, valuing, setValue }) {
   const [choose, setChoose] = useState(0);
   const [messages, setMessages] = useState([]);
 
-  const onClick = (num) => {
-    if (choose === num) {
-        setChoose(0)
-    } else {
-        setChoose(num)
-    }
-  }
+//   const onClick = (num) => {
+//     if (choose === num) {
+//         setChoose(0)
+//     } else {
+//         setChoose(num)
+//     }
+//   }
 
   useEffect(() => {
     onSnapshot(query(collection(dbservice, 'num'), orderBy('creatorClock', 'desc')), (snapshot) => {
