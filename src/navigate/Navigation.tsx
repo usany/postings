@@ -6,7 +6,7 @@ import 'src/navigate/Navigation.css'
 import Modes from 'src/Modes'
 
 const onLogOutClick = () => auth.signOut();
-function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, value, setSide, setSideNavigation, check, setCheck }) {
+function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck }) {
   const checkbox = (event) => {
     setCheck(false)
     // document.getElementById('nav-control').checked = false
@@ -22,34 +22,34 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, value, se
   //   }
   // };
   
-  let offsetX
-  let offsetSide
-  const add = (event) => {
-    offsetX = event.clientX-event.target.getBoundingClientRect().left
-    offsetSide = event.clientX-event.target.getBoundingClientRect().right
-    // console.log(offsetX)
-    // console.log(offsetSide)
-    event.target.addEventListener('pointermove', move)
-    event.target.addEventListener('touchmove', move)
-  }
-  const remove = (event) => {
-    event.target.removeEventListener('pointermove', move)
-    event.target.removeEventListener('touchmove', move)
-    // event.target.style.left = '-100%'
-    if (event.pageX-offsetX < 0) {
-      event.target.style.left = '-100%'
-    }
-    checkbox(event)
-  }
-  const move = (event) => {
-    const el = event.target
-    if (event.pageX-offsetX < 0) {
-      el.style.left = `${event.pageX-offsetX}px`
-      document.getElementsByClassName('naving')[0].style.left=`${event.pageX-offsetSide}px`
-      document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
-    }    
-    // event.target.style.left = '-100%'
-  }
+  // let offsetX
+  // let offsetSide
+  // const add = (event) => {
+  //   offsetX = event.clientX-event.target.getBoundingClientRect().left
+  //   offsetSide = event.clientX-event.target.getBoundingClientRect().right
+  //   // console.log(offsetX)
+  //   // console.log(offsetSide)
+  //   event.target.addEventListener('pointermove', move)
+  //   event.target.addEventListener('touchmove', move)
+  // }
+  // const remove = (event) => {
+  //   event.target.removeEventListener('pointermove', move)
+  //   event.target.removeEventListener('touchmove', move)
+  //   // event.target.style.left = '-100%'
+  //   if (event.pageX-offsetX < 0) {
+  //     event.target.style.left = '-100%'
+  //   }
+  //   checkbox(event)
+  // }
+  // const move = (event) => {
+  //   const el = event.target
+  //   if (event.pageX-offsetX < 0) {
+  //     el.style.left = `${event.pageX-offsetX}px`
+  //     document.getElementsByClassName('naving')[0].style.left=`${event.pageX-offsetSide}px`
+  //     document.getElementsByClassName('naving')[1].style.left=`${event.pageX-offsetSide}px`
+  //   }    
+  //   event.target.style.left = '-100%'
+  // }
   
   const logOut = (event) => {
     onLogOutClick()
@@ -58,92 +58,97 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, value, se
     setUserObj(null)
   }
 
-  let navigation
+  const navigation = []
   if (check) {
-    navigation = 'navigationChecked'
-    setSide('naving flex flex-col')
-    setSideNavigation('naving border border-sky-500	rounded-t fixed bottom-0 start-0 end-0')
+    navigation.push(
+      'navigationChecked'
+    )
   } else {
-    navigation = 'navigation'
-    setSide('flex flex-col')
-    setSideNavigation('border border-sky-500 rounded-t fixed bottom-0 start-0 end-0')
+    navigation.push(
+      'navigation'
+    )
   }
 
-  var active = false;
-    var currentX;
-    var currentY;
-    var initialX;
-    var initialY;
-    var xOffset = 0;
-    var yOffset = 0;
+  // var active = false;
+  //   var currentX;
+  //   var currentY;
+  //   var initialX;
+  //   var initialY;
+  //   var xOffset = 0;
+  //   var yOffset = 0;
 
   
-    function dragStart(e) {
-      if (e.type === "touchstart") {
-        initialX = e.touches[0].clientX - xOffset;
-        initialY = e.touches[0].clientY - yOffset;
-      } else {
-        initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
-      }
+  //   function dragStart(e) {
+  //     if (e.type === "touchstart") {
+  //       initialX = e.touches[0].clientX - xOffset;
+  //       initialY = e.touches[0].clientY - yOffset;
+  //     } else {
+  //       initialX = e.clientX - xOffset;
+  //       initialY = e.clientY - yOffset;
+  //     }
 
-      // if (e.target === dragItem) {
-      //   active = true;
-      // }
-    }
+  //     // if (e.target === dragItem) {
+  //     //   active = true;
+  //     // }
+  //   }
 
-    function dragEnd(e) {
-      initialX = currentX;
-      initialY = currentY;
-      console.log(e)
-      if (e.pageX-offsetX < 0) {
-        e.target.style.left = '-100%'
-      }
-      checkbox(event)
-    }
+  //   function dragEnd(e) {
+  //     initialX = currentX;
+  //     initialY = currentY;
+  //     console.log(e)
+  //     if (e.pageX-offsetX < 0) {
+  //       e.target.style.left = '-100%'
+  //     }
+  //     checkbox(event)
+  //   }
 
-    function drag(e) {
-        e.preventDefault();
+  //   function drag(e) {
+  //       e.preventDefault();
       
-        if (e.type === "touchmove") {
-          currentX = e.touches[0].clientX - initialX;
-          currentY = e.touches[0].clientY - initialY;
-        } else {
-          currentX = e.clientX - initialX;
-          currentY = e.clientY - initialY;
-        }
+  //       if (e.type === "touchmove") {
+  //         currentX = e.touches[0].clientX - initialX;
+  //         currentY = e.touches[0].clientY - initialY;
+  //       } else {
+  //         currentX = e.clientX - initialX;
+  //         currentY = e.clientY - initialY;
+  //       }
 
-        xOffset = currentX;
-        yOffset = currentY;
+  //       xOffset = currentX;
+  //       yOffset = currentY;
 
-        // setTranslate(currentX, currentY, dragItem);
-        const el = e.target
-          el.style.left = `${e.pageX-xOffset}px`
-          console.log(document.getElementsByClassName('naving')[0])
-          document.getElementsByClassName('naving')[0].style.left=`${e.pageX-xOffset}px`
-          document.getElementsByClassName('naving')[1].style.left=`${e.pageX-xOffset}px`
-    }
+  //       // setTranslate(currentX, currentY, dragItem);
+  //       const el = e.target
+  //         el.style.left = `${e.pageX-xOffset}px`
+  //         console.log(document.getElementsByClassName('naving')[0])
+  //         document.getElementsByClassName('naving')[0].style.left=`${e.pageX-xOffset}px`
+  //         document.getElementsByClassName('naving')[1].style.left=`${e.pageX-xOffset}px`
+  //   }
 
-    function setTranslate(xPos, yPos, el) {
-      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    }
+  //   function setTranslate(xPos, yPos, el) {
+  //     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  //   }
 
   return(
     // <ClickAwayListener onClickAway={() => setCheck(false)}>
       <div>
         {isLoggedIn && 
         <nav 
-          className={navigation}
+          className={navigation[0]}
           // onTouchStart={(event) => add(event, 'touch')}
           // onTouchMove={(event) => add(event)}
           // onTouchEnd={(event) => remove(event)}
           // onPointerDown={(event) => add(event)} 
           // onPointerUp={(event) => remove(event)}
         >
-          <h5 className='nav-padding'>
-            <Modes/>
+          <h5 
+          // className='nav-padding' 
+          // onClick={() => setCheck(false)}
+          >
+            <Modes setCheck={setCheck}/>
           </h5>
-          <h1 className='nav-padding'>
+          <h1 
+          // className='nav-padding'
+          >
             <Link to='/postings/' onClick={(event) => checkbox(event)}>메인 페이지</Link>
           </h1>
           <h1>
@@ -161,15 +166,20 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, side, value, se
         }
         {!isLoggedIn &&
           <nav 
-            className={navigation} 
+            className={navigation[0]} 
             // onTouchEnd={(event) => remove(event)}
             // onPointerDown={(event) => add(event)} 
             // onPointerUp={(event) => remove(event)}
           >
-            <h5 className='nav-padding'>
+            <h5 
+            // className='nav-padding' 
+            // onClick={() => setCheck(false)}
+            >
               <Modes/>
             </h5>
-            <h1 className='nav-padding'>
+            <h1 
+            // className='nav-padding'
+            >
               <Link to='/postings/' onClick={(event) => checkbox(event)}>메인 페이지</Link>
             </h1>
             <h1>

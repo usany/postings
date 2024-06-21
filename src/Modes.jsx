@@ -17,30 +17,29 @@ const onClick = (choose, setChoose) => {
     if (document.body.classList.contains("dark-theme")) {
       theme = "dark";
     }
-    if (document.getElementsByClassName("flex")) {
-        const array = Array.from(document.getElementsByClassName("flex"))
-        array.map((msg) => {
-            msg.className=`${document.getElementsByClassName("flex").className} dark-theme`
-        })
-    }
+    // if (document.getElementsByClassName("flex")) {
+    //     const array = Array.from(document.getElementsByClassName("flex"))
+    //     array.map((msg) => {
+    //         msg.className=`${document.getElementsByClassName("flex").className} dark-theme`
+    //     })
+    // }
     localStorage.setItem("theme", theme);
-  
 }
 
 const Button = ({colorMode, choose, setChoose}) => {
     const theme = useTheme();
 
     return (
-        <div className='mode'>
+        <button className='mode' onClick={() => onClick(choose, setChoose)}>
             {theme.palette.choose} mode
-            <IconButton color="inherit" onClick={() => onClick(choose, setChoose)}>
+            <IconButton color="inherit">
                 {theme.palette.choose === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}                    
             </IconButton>
-        </div>
+        </button>
     )
 }
 
-function Modes() {
+function Modes({setCheck}) {
     const [choose, setChoose] = useState('light');
     const colorMode = {
         toggleColorMode: choose,
@@ -49,12 +48,16 @@ function Modes() {
         palette: {
           choose,
         },
-      })
+    })
     
     return (
-        <ThemeProvider theme={theme}>
-            <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
-        </ThemeProvider>  
+        <button onClick={() => {
+            setCheck(false)
+        }}>
+            <ThemeProvider theme={theme}>
+                <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
+            </ThemeProvider>
+        </button>  
     )
 }
 
