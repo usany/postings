@@ -27,10 +27,10 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
         ) 
     } else {
         sides.push(
-            'naving flex flex-col'
+            'fixed left-2/3 w-full flex flex-col'
         )
         sides.push(
-            'naving border border-sky-500 rounded-t bottom-0 end-0'
+            'fixed left-2/3 w-full border border-sky-500 rounded-t bottom-0 end-0'
         ) 
     }
     return (
@@ -39,7 +39,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
                     <ClickAwayListener onClickAway={() => setCheck(false)}>
                         <div>
                             <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck}/>
-                            <div 
+                            <div className='pt-5'
                                 // onClick={() => setCheck(!check)}
                             >
                                 {userObj ? 

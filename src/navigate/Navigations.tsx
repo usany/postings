@@ -12,15 +12,15 @@ import Paper from '@mui/material/Paper'
 import 'src/navigate/Navigations.css'
 
 function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
-    const ref = useRef(counter)
+    // const ref = useRef(counter)
 
-    let badge
-    useEffect(() => {
-        badge = counter
-        ref.current = counter
-        console.log(ref)
-        console.log(badge)
-    })
+    // let badge
+    // useEffect(() => {
+    //     badge = counter
+    //     ref.current = counter
+    //     console.log(ref)
+    //     console.log(badge)
+    // })
 
     return (
         <Paper className={sides} elevation={5}>
@@ -34,7 +34,7 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
                 >
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌리기</Link>} icon={<ChevronRight />}/>
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌리기 목록</Link>} icon={<Checklist />}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>내 상태</Link>} icon={<Badges counter={badge}/>}/>
+                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>내 상태</Link>} icon={<Badges counter={counter}/>}/>
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌려주기</Link>} icon={<ChevronLeft/>}/>
                     <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌려주기 목록</Link>} icon={<ChecklistRtl />}/>
                     {/* <div className='font-link'>list</div> */}

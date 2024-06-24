@@ -1,8 +1,8 @@
-.naving {
+/* .naving {
   position: fixed;
   left: 30%;
   width: 100%;
-}
+} */
 
 /* .navs {
   position: fixed;
@@ -30,24 +30,31 @@
 }
 
 .navigation {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   bottom: 0;
+  overflow: hidden; */
   left: -100%;
-  overflow: hidden;
 }
-
+@font-face {
+	font-family: 'maruburi';
+	/* font-weight: 300;
+	font-style: normal; */
+	src: url('src/assets/fonts/OTF/MaruBuri-Bold.otf') format('opentype')
+}  
 .navigationChecked {
   background: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  top: 0;
+  font-family: maruburi;
+  font-size: 25px;
+  /* position: fixed; */
+  /* top: 0;
   bottom: 0;
-  left: 0;
+  left: 0; */
   /* left: -100%; */
   /* overflow: hidden; */
   /* transition: left 0.3s; */
-  width: 30%;
-  z-index: 100;
+  /* width: 30%; */
+  /* z-index: 100; */
 
   h1 a {
     color: #fff;

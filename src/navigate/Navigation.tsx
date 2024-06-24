@@ -61,11 +61,16 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
   const navigation = []
   if (check) {
     navigation.push(
-      'navigationChecked'
+      'navigationChecked fixed top-0 bottom-0 left-0 z-10 w-2/3'
     )
   } else {
     navigation.push(
-      'navigation'
+      'fixed top-0 bottom-0 overflow-hidden navigation'
+  //     position: fixed;
+  // top: 0;
+  // bottom: 0;
+  // left: -100%;
+  // overflow: hidden;
     )
   }
 
@@ -76,7 +81,6 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
   //   var initialY;
   //   var xOffset = 0;
   //   var yOffset = 0;
-
   
   //   function dragStart(e) {
   //     if (e.type === "touchstart") {
@@ -140,12 +144,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
           // onPointerDown={(event) => add(event)} 
           // onPointerUp={(event) => remove(event)}
         >
-          <h5 
-          // className='nav-padding' 
-          // onClick={() => setCheck(false)}
-          >
-            <Modes setCheck={setCheck}/>
-          </h5>
+          <Modes setCheck={setCheck}/>
           <h1 
           // className='nav-padding'
           >
@@ -171,12 +170,12 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
             // onPointerDown={(event) => add(event)} 
             // onPointerUp={(event) => remove(event)}
           >
-            <h5 
-            // className='nav-padding' 
-            // onClick={() => setCheck(false)}
-            >
-              <Modes setCheck={setCheck}/>
-            </h5>
+            {/* <h5 
+            className='nav-padding' 
+            onClick={() => setCheck(false)}
+            > */}
+            <Modes setCheck={setCheck}/>
+            {/* </h5> */}
             <h1 
             // className='nav-padding'
             >

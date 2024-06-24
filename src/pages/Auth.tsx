@@ -77,7 +77,7 @@ function Auth({ newAccount, setNewAccount }) {
   })
   
   return (  
-    <div>
+    <div className='pt-5'>
       <form id='auth' className='p-5' onSubmit={onSubmit}>
         <div className='flex justify-center pb-2.5'>
           <TextField label="이메일" value={email} onChange={onChange} variant="outlined" name='email' type='email' fullWidth required />

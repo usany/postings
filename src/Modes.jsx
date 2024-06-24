@@ -51,13 +51,15 @@ function Modes({setCheck}) {
     })
     
     return (
-        <button onClick={() => {
-            setCheck(false)
-        }}>
-            <ThemeProvider theme={theme}>
-                <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
-            </ThemeProvider>
-        </button>  
+        <div className='flex justify-center p-5'>
+            <button onClick={() => {
+                setCheck(false)
+            }}>
+                <ThemeProvider theme={theme}>
+                    <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
+                </ThemeProvider>
+            </button>  
+        </div>
     )
 }
 
