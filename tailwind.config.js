@@ -16,6 +16,19 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    colors: {
+      'light-1': '#cbd5df',
+      'purple': '#3f3cbb',
+      'midnight': '#121063',
+      'metal': '#565584',
+      'tahiti': '#3ab7bf',
+      'silver': '#ecebff',
+      'bubble-gum': '#ff77e9',
+      'bermuda': '#78dcca',
+    },
+    height: {
+      '15': '3.75rem',
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",

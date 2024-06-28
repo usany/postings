@@ -18,6 +18,11 @@
 	  color: #809fff;
 	}
 } */
+/* .btns {
+	text-decoration: none;
+	color: black;
+} */
+
 .dark-theme {
   color: #eee;
   background: #121212;
@@ -29,6 +34,13 @@
   /* font-size: 20px; */
 }
 
+@font-face {
+	font-family: 'maruburi';
+	/* font-weight: 300;
+	font-style: normal; */
+	src: url('src/assets/fonts/OTF/MaruBuri-Bold.otf') format('opentype')
+}
+
 .navigation {
   /* position: fixed;
   top: 0;
@@ -36,12 +48,6 @@
   overflow: hidden; */
   left: -100%;
 }
-@font-face {
-	font-family: 'maruburi';
-	/* font-weight: 300;
-	font-style: normal; */
-	src: url('src/assets/fonts/OTF/MaruBuri-Bold.otf') format('opentype')
-}  
 .navigationChecked {
   background: rgba(0, 0, 0, 0.7);
   font-family: maruburi;

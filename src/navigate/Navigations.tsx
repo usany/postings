@@ -9,9 +9,9 @@ import ChecklistRtl from '@mui/icons-material/ChecklistRtl'
 import BeachAccess from '@mui/icons-material/BeachAccess'
 import Badges from 'src/muiComponents/Badges'
 import Paper from '@mui/material/Paper'
-import 'src/navigate/Navigations.css'
 
 function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
+    const navigate = useNavigate()
     // const ref = useRef(counter)
 
     // let badge
@@ -30,14 +30,14 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
                     value={value}
                     onChange={(event, newValue) => {
                         setValue(newValue)
+                        navigate('/postings/')
                     }}
                 >
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌리기</Link>} icon={<ChevronRight />}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌리기 목록</Link>} icon={<Checklist />}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>내 상태</Link>} icon={<Badges counter={counter}/>}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌려주기</Link>} icon={<ChevronLeft/>}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌려주기 목록</Link>} icon={<ChecklistRtl />}/>
-                    {/* <div className='font-link'>list</div> */}
+                    <BottomNavigationAction label={'빌리기'} icon={<ChevronRight />}/>
+                    <BottomNavigationAction label={'빌리기 목록'} icon={<Checklist />}/>
+                    <BottomNavigationAction label={'내 상태'} icon={<Badges counter={counter}/>}/>
+                    <BottomNavigationAction label={'빌려주기'} icon={<ChevronLeft/>}/>
+                    <BottomNavigationAction label={'빌려주기 목록'} icon={<ChecklistRtl />}/>
                 </BottomNavigation>
             }
             {!isLoggedIn && 
@@ -48,9 +48,9 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
                         setValue(newValue)
                     }}
                 >
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌리기 목록</Link>} icon={<Checklist />}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>로그인</Link>} icon={<BeachAccess />}/>
-                    <BottomNavigationAction label={<Link className='btns' to='/postings/'>빌려주기 목록</Link>} icon={<ChecklistRtl />}/>
+                    <BottomNavigationAction label={'빌리기 목록'} icon={<Checklist />}/>
+                    <BottomNavigationAction label={'로그인'} icon={<BeachAccess />}/>
+                    <BottomNavigationAction label={'빌려주기 목록'} icon={<ChecklistRtl />}/>
                 </BottomNavigation>
             }
         </Paper>

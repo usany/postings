@@ -29,7 +29,7 @@ function Notice({ isLoggedIn, userObj, valuing, setValue }) {
   }, [])
 
   return (  
-    <div>
+    <div className='p-5'>
         <div>
             {valuing === 1 &&
                 <div className='flex justify-center'>
