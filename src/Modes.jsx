@@ -15,7 +15,7 @@ const onClick = (choose, setChoose) => {
     }
     let theme = "light";
     if (document.body.classList.contains("dark-theme")) {
-      theme = "dark";
+        theme = "dark";
     }
     // if (document.getElementsByClassName("flex")) {
     //     const array = Array.from(document.getElementsByClassName("flex"))
@@ -46,18 +46,20 @@ function Modes({setCheck}) {
     }
     const theme = createTheme({
         palette: {
-          choose,
+            choose,
         },
     })
     
     return (
-        <button onClick={() => {
-            setCheck(false)
-        }}>
-            <ThemeProvider theme={theme}>
-                <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
-            </ThemeProvider>
-        </button>  
+        <div className='flex justify-center p-5'>
+            <button onClick={() => {
+                setCheck(false)
+            }}>
+                <ThemeProvider theme={theme}>
+                    <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
+                </ThemeProvider>
+            </button>
+        </div>
     )
 }
 

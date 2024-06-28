@@ -52,8 +52,8 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
     
     onSnapshot(msg, (snapshot) => {
       const newArray = snapshot.docs.map((document) => ({
-          id: document.id,
-          ...document.data(),
+        id: document.id,
+        ...document.data(),
       }));
       setMessages(newArray);
     })
@@ -63,8 +63,8 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
     
     onSnapshot(msg, (snapshot) => {
       const newArray = snapshot.docs.map((document) => ({
-          id: document.id,
-          ...document.data(),
+        id: document.id,
+        ...document.data(),
       }));
       setMessage(newArray);
     })

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -73,4 +73,104 @@
   body {
     @apply bg-background text-foreground;
   }
+} */
+
+body {
+  font-family: maruburi;
+  background: #cbd5df;
 }
+.btns {
+	text-decoration: none;
+	color: black;
+}
+
+.dark-theme {
+  color: #eee;
+  background: #2d3848;
+}
+.mode {
+  color: #fff;
+  text-align: center;
+  display: block;
+  /* font-size: 20px; */
+}
+.naving {
+  position: fixed;
+  left: 30%;
+  width: 100%;
+}
+
+/* .show {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #cbd5df;
+} */
+.pagings {
+  padding-top: 60px;
+}
+
+@font-face {
+	font-family: 'maruburi';
+	/* font-weight: 300;
+	font-style: normal; */
+	src: url('src/assets/fonts/OTF/MaruBuri-Bold.otf') format('opentype')
+}
+
+.navigation {
+  /* position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow: hidden; */
+  /* left: -100%; */
+}
+.navigationChecked {
+  background: rgba(0, 0, 0, 0.7);
+  /* font-family: maruburi; */
+  font-size: 25px;
+  /* position: fixed; */
+  /* top: 0;
+  bottom: 0;
+  left: 0; */
+  /* left: -100%; */
+  /* overflow: hidden; */
+  /* transition: left 0.3s; */
+  /* width: 30%; */
+  /* z-index: 100; */
+
+  color: #fff;
+  text-align: center;
+  display: block;
+  h1 a {
+    /* color: #fff; */
+    /* text-align: center; */
+    /* z-index: 101; */
+    /* display: block; */
+    /* width: 100%; */
+    /* font-size: 40px; */
+    /* padding: 10px 20px; */
+    /* margin-bottom: 20px; */
+    /* text-decoration: none; */
+    /* transition: all .3s ease; */
+    /* &:hover {
+			background: rgba(255,255,255,.2);
+		} */
+  }
+  h5 a {
+    /* color: #fff; */
+    /* width: 100%; */
+    /* text-align: center; */
+    /* z-index: 101; */
+    /* display: block; */
+    /* font-size: 40px; */
+    /* padding: 10px 20px; */
+    /* margin-bottom: 20px; */
+    /* text-decoration: none; */
+    /* transition: all .3s ease; */
+    /* &:hover {
+			background: rgba(255,255,255,.2);
+		} */
+  }
+}
+
