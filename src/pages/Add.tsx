@@ -198,7 +198,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
                             <option value={'문과대'}>문과대</option>
                             <option value={'의과대'}>의과대</option>
                             <option value={'치과병원'}>치과병원</option>
-                            <option value={'정문 노란 지붕'}>치과병원</option>
+                            <option value={'정문 노란 지붕'}>정문 노란 지붕</option>
                         </select>
                         {count !== 0 && 
                             <select className='rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeSeat}>  
@@ -262,6 +262,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
                         <div>등록 중입니다</div>
                         <Lotties />
                     </div>
+                    // alert('등록 중입니다')
                 }
             </div>
         }

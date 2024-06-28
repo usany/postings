@@ -26,7 +26,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
     const sides = []
     if (check === false) {
         sides.push(
-            'flex flex-col'
+            'flex flex-col page'
         )
         sides.push(
             'border border-sky-500 rounded-t fixed bottom-0 start-0 end-0'
@@ -39,7 +39,6 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
             'fixed left-2/3 w-full border border-sky-500 rounded-t bottom-0 end-0'
         ) 
     }
-
     // keep track of previous scroll position
     let prevScrollPos = window.scrollY;
     window.addEventListener('scroll', function() {

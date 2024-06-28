@@ -24,6 +24,23 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
         })
     }, [])
     
+        // keep track of previous scroll position
+let prevScrollPos = window.scrollY;
+
+window.addEventListener('scroll', function() {
+  // current scroll position
+  const currentScrollPos = window.scrollY;
+
+  if (prevScrollPos >= currentScrollPos) {
+    document.querySelector('.page').classList.add('paging')
+  } else {
+    document.querySelector('.page').classList.remove('paging')
+  }
+
+  // update previous scroll position
+  prevScrollPos = currentScrollPos;
+});
+
     return (
         <>
             {isLoggedIn && 
