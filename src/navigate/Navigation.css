@@ -4,6 +4,15 @@
   width: 100%;
 }
 
+.show {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* background-color: darkblue; */
+}
+.paging {
+  padding-top: 60px;
+}
 /* .navs {
   position: fixed;
   top: 0;

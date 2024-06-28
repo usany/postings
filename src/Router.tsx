@@ -20,26 +20,56 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
     const sides = []
     if (check === false) {
         sides.push(
-            'flex flex-col'
+            'flex flex-col page'
         )
         sides.push(
             'border border-sky-500 rounded-t fixed bottom-0 start-0 end-0'
         ) 
     } else {
         sides.push(
-            'naving flex flex-col'
+            'naving flex flex-col page'
         )
         sides.push(
             'naving border border-sky-500 rounded-t bottom-0 end-0'
         ) 
     }
+    // keep track of previous scroll position
+let prevScrollPos = window.scrollY;
+
+window.addEventListener('scroll', function() {
+  // current scroll position
+  const currentScrollPos = window.scrollY;
+
+  if (prevScrollPos >= currentScrollPos) {
+    // user has scrolled up
+    // document.getElementsByClassName('pt-5 navbar')[0].add('border border-sky-500');
+    document.querySelector('.navbar').classList.add('show')
+    // document.querySelector('.page').classList.add('show')
+    // document.querySelector('.navbar').classList.add('fixed')
+    // document.querySelector('.navbar').classList.add('z-10')
+    // console.log(document.querySelector('.navbar'))
+  } else {
+    // user has scrolled down
+    // document.getElementsByClassName('pt-5 navbar')[0].remove('border border-sky-500');
+    document.querySelector('.navbar').classList.remove('show')
+    // document.querySelector('.page').classList.remove('show')
+    // document.querySelector('.navbar').classList.remove('fixed')
+    // document.querySelector('.navbar').classList.remove('z-10')
+    // console.log(document.querySelector('.navbar'))
+  }
+
+  // update previous scroll position
+  prevScrollPos = currentScrollPos;
+});
+
     return (
         <BrowserRouter>
                 <div className={sides[0]}>
                     <ClickAwayListener onClickAway={() => setCheck(false)}>
                         <div>
                             <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck}/>
-                            <div 
+                            <div
+                                className='pt-5 navbar' 
                                 // onClick={() => setCheck(!check)}
                             >
                                 {userObj ? 
@@ -62,8 +92,8 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
                                 </Route>
                             ) : (
                                 <Route>
-                                    <Route path='/postings/' Component={() => <Home isLoggedIn={isLoggedIn} userObj={{uid: null}} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} side={side} setSide={setSide} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck} />}/>
-                                    <Route path='/postings/specific' Component={() => <Specific isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} side={side} setSide={setSide} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck}/>}/>
+                                    <Route path='/postings/' Component={() => <Home isLoggedIn={isLoggedIn} userObj={{uid: null}} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck} />}/>
+                                    <Route path='/postings/specific' Component={() => <Specific isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck}/>}/>
                                     {/* <Route path='/posting/sign' Component={() => <Home isLoggedIn={isLoggedIn} userObj={{uid: null}} value={1} newAccount={newAccount} setNewAccount={setNewAccount}/>}/> */}
                                 </Route>
                             )
