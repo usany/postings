@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from 'src/pages/Home'
 import Profile from 'src/pages/Profile'
@@ -16,6 +16,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
     // const [side, setSide] = useState('flex flex-col');
     // const [sideNavigation, setSideNavigation] = useState('border border-sky-500	rounded-t fixed bottom-0 start-0 end-0');
     const [check, setCheck] = useState(false)
+    const [scroll, setScroll] = useState(0)
     const [sideNavigation, setSideNavigation] = useState(
         {
             display : false,
@@ -23,17 +24,37 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
         }
     )
     
+    const ref = useRef(null)
+    let scrolling = 0
+    useEffect(() => {
+        if (!check) {
+            // while (scrolling === 0) {
+                // console.log(scroll)
+                setTimeout(() => window.scrollTo({top: scroll,
+                    behavior: "smooth"
+                }), 5);
+                // scrolling = window.scrollY
+            // }
+            // setTimeout(() => window.scrollTo({top: scroll}), 1);
+            // window.scrollTo({top: 100})
+            // ref.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    })
     const sides = []
     if (check === false) {
         sides.push(
-            'flex flex-col'
+            'flex flex-col location'
         )
         sides.push(
             'border border-sky-500 rounded-t fixed bottom-0 start-0 end-0'
-        ) 
+        )
+        // console.log(
+        //     document.getElementsByClassName('location')[0]
+        // )
+        // document.getElementsByClassName('location')[0].style.top=`-${prevScrollPos}px`
     } else {
         sides.push(
-            'fixed left-2/3 w-full flex flex-col'
+            'fixed left-2/3 w-full flex flex-col location'
         )
         sides.push(
             'fixed left-2/3 w-full border border-sky-500 rounded-t bottom-0 end-0'
@@ -60,7 +81,6 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
         document.querySelector('#navigationSelectorOne').classList.remove('fixed', 'top-0', 'z-20', 'bg-light-1')
         document.querySelector('#navigationSelectorTwo').classList.remove('fixed', 'top-0', 'z-10', 'bg-light-1')
         document.querySelector('#contentSelector').classList.remove('pagings')
-        // console.log(document.querySelector('.navbar'))
     }
 
     // update previous scroll position
@@ -69,13 +89,32 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
 
     return (
         <BrowserRouter>
-                <div className={sides[0]}>
+                <div className={sides[0]+' location'}>
                     <div className='flex flex-row'>
-                        <ClickAwayListener onClickAway={() => setCheck(false)}>
+                        <ClickAwayListener onClickAway={() => {
+                            setCheck(false)
+                            // setScroll(prevScrollPos)
+                            // console.log(
+                            //     document.getElementsByClassName('location')[0].style.top
+                            // )
+                            // prevScrollPos = -document.getElementsByClassName('location')[0].style.top
+                            // document.getElementsByClassName('location')[0].style.top=`-${prevScrollPos}px`
+                        }}>
                             <div id='navigationSelectorOne' className='w-10 pt-5'>
                                 <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck}/>
                                 {userObj ? 
-                                    <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => setCheck(!check)} />
+                                    <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => {
+                                        setCheck(!check)
+                                        setScroll(prevScrollPos)
+                                        // console.log(prevScrollPos)
+                                        // console.log(
+                                        //     document.getElementsByClassName('location')[0].style.top
+                                        // )
+                                        document.getElementsByClassName('location')[0].style.top=`-${prevScrollPos}px`
+                                        // console.log(
+                                        //     document.getElementsByClassName('location')[0].style.top
+                                        // )
+                                    }} />
                                     :
                                     <Avatar sx={{ bgcolor: blue[500] }} onClick={() => setCheck(!check)} />
                                 }
