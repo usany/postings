@@ -21,14 +21,14 @@ function App() {
       setInit(true)
     })
   }, [])
-  useEffect(() => {
-    const color = localStorage.getItem("theme");
-    if (color === 'dark') {
-        document.body.classList.add("dark-theme")
-    } else {
-        document.body.classList.remove("dark-theme")
-    }
-  })
+  // useEffect(() => {
+  //   const color = localStorage.getItem("theme");
+  //   if (color === 'dark') {
+  //       document.documentElement.classList.add("dark-theme")
+  //   } else {
+  //       document.documentElement.classList.remove("dark-theme")
+  //   }
+  // })
   return (
     <>
           {init ? <Router isLoggedIn={isLoggedIn} userObj={userObj} newAccount={newAccount} setNewAccount={setNewAccount}/> : <Lotties/>}

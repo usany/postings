@@ -72,8 +72,8 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
 
         if (prevScrollPos >= currentScrollPos) {
             // user has scrolled up
-            document.querySelector('#navigationSelectorOne').classList.add('fixed', 'top-0', 'z-20', 'bg-light-1')
-            document.querySelector('#navigationSelectorTwo').classList.add('fixed', 'top-0', 'z-10', 'bg-light-1')
+            document.querySelector('#navigationSelectorOne').classList.add('fixed', 'top-0', 'z-20', 'bg-light-3', 'dark:bg-dark-3')
+            document.querySelector('#navigationSelectorTwo').classList.add('fixed', 'top-0', 'z-10', 'bg-light-3', 'dark:bg-dark-3')
             document.querySelector('#contentSelector').classList.add('pagings')
         } else {
             // user has scrolled down
@@ -81,8 +81,8 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
             // console.log(prevScrollPos)
             // console.log('current')
             // console.log(currentScrollPos)
-            document.querySelector('#navigationSelectorOne').classList.remove('fixed', 'top-0', 'z-20', 'bg-light-1')
-            document.querySelector('#navigationSelectorTwo').classList.remove('fixed', 'top-0', 'z-10', 'bg-light-1')
+            document.querySelector('#navigationSelectorOne').classList.remove('fixed', 'top-0', 'z-20', 'bg-light-3', 'dark:bg-dark-3')
+            document.querySelector('#navigationSelectorTwo').classList.remove('fixed', 'top-0', 'z-10', 'bg-light-3', 'dark:bg-dark-3')
             document.querySelector('#contentSelector').classList.remove('pagings')
         }
 
@@ -123,6 +123,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
                                 :
                                 <Avatar sx={{ bgcolor: blue[500] }} onClick={() => setCheck(!check)} />
                             }
+                            {/* <div className='bg-dark-3 dark:bg-light-3'>practice</div> */}
                         </div>
                     </ClickAwayListener>
                     <div id='navigationSelectorTwo' className='w-full h-15'></div>

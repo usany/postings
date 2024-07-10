@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'selector',
+  darkMode: 'class',
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -17,7 +17,15 @@ module.exports = {
       },
     },
     colors: {
-      'light-1': '#cbd5df',
+      'light-1': '#f7fafb',
+      'light-2': '#e2e8f0',
+      'light-3': '#cbd5df',
+      'dark-1': '#3a4556',
+      'dark-2': '#2d3848',
+      // 'dark-3': '#121063',
+      'dark-3': '#1a202c',
+      'black': 'rgb(0 0 0)',
+      'white': 'rgb(255 255 255)',
       'purple': '#3f3cbb',
       'midnight': '#121063',
       'metal': '#565584',

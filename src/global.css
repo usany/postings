@@ -15,9 +15,9 @@ body {
 	color: black;
 } */
 
-.dark-theme {
+.dark body {
   color: #eee;
-  background: #2d3848;
+  background: #1a202c;
 }
 /* .mode {
   color: #fff;

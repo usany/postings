@@ -5,7 +5,8 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 
 const onClick = (color, setColor) => {
-    document.body.classList.toggle("dark-theme")
+    // document.body.classList.toggle("dark-theme")
+    document.documentElement.classList.toggle("dark")
     if (color === 'light') {
         setColor('dark')
         localStorage.setItem("theme", 'dark');

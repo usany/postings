@@ -20,7 +20,7 @@
       //     window.matchMedia('(prefers-color-scheme: dark)').matches
       //   const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
       if (localStorage.getItem("theme") === 'dark') {
-        document.body.classList.add("dark-theme")
+        document.documentElement.classList.add("dark")
       }
     </script>
     <title>Vite + React + TS</title>

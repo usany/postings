@@ -18,12 +18,6 @@ function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
         setMessages(newArray)
     })
     }, [])
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === 'light'){
-        document.body.className = ""
-    } else {
-        document.body.className = "dark-theme"
-    }
 
     const onCounting = (msg) => {
         setCounter([
