@@ -1,63 +1,69 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 
-const currentTheme = localStorage.getItem("theme");
-
-const onClick = (choose, setChoose) => {
+const onClick = (color, setColor) => {
     document.body.classList.toggle("dark-theme")
-    if (choose === 'light') {
-        setChoose('dark')
+    if (color === 'light') {
+        setColor('dark')
+        localStorage.setItem("theme", 'dark');
     } else {
-        setChoose('light')
+        setColor('light')
+        localStorage.setItem("theme", 'light');
     }
-    let theme = "light";
-    if (document.body.classList.contains("dark-theme")) {
-        theme = "dark";
-    }
-    // if (document.getElementsByClassName("flex")) {
-    //     const array = Array.from(document.getElementsByClassName("flex"))
-    //     array.map((msg) => {
-    //         msg.className=`${document.getElementsByClassName("flex").className} dark-theme`
-    //     })
+    // let theme = "light";
+    // if (document.body.classList.contains("dark-theme")) {
+    //     theme = "dark";
     // }
-    localStorage.setItem("theme", theme);
+    // localStorage.setItem("theme", theme);
 }
 
-const Button = ({colorMode, choose, setChoose}) => {
-    const theme = useTheme();
+// const Button = ({ 
+//     colorMode, 
+//     color, setColor }) => {
+//     const theme = useTheme();
 
-    return (
-        <button className='mode' onClick={() => onClick(choose, setChoose)}>
-            {theme.palette.choose} mode
-            <IconButton color="inherit">
-                {theme.palette.choose === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}                    
-            </IconButton>
-        </button>
-    )
-}
+//     return (
+//         <button onClick={() => onClick(color, setColor)}>
+//             <IconButton color="inherit">
+//                 {color === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+//             </IconButton>
+//         </button>
+//     )
+// }
 
-function Modes({setCheck}) {
-    const [choose, setChoose] = useState('light');
-    const colorMode = {
-        toggleColorMode: choose,
-    }
-    const theme = createTheme({
-        palette: {
-            choose,
-        },
-    })
-    
+function Modes() {
+    const [color, setColor] = useState(localStorage.getItem("theme"));
+    // useEffect(() => {
+    //     localStorage.setItem("theme", color);
+    //     if (color === 'dark') {
+    //         document.body.classList.add("dark-theme")
+    //     } else {
+    //         document.body.classList.remove("dark-theme")
+    //     }
+    // })
+    // const colorMode = {
+    //     toggleColorMode: color,
+    // }
+    // const theme = createTheme({
+    //     palette: {
+    //         color,
+    //     },
+    // })
+
     return (
         <div className='flex justify-center p-5'>
-            <button onClick={() => {
-                setCheck(false)
-            }}>
-                <ThemeProvider theme={theme}>
-                    <Button colorMode={colorMode} choose={choose} setChoose={setChoose}/>
-                </ThemeProvider>
+            {/* <ThemeProvider theme={theme}>
+                <Button 
+                    colorMode={colorMode} 
+                    color={color} setColor={setColor} />
+            </ThemeProvider> */}
+            <button onClick={() => onClick(color, setColor)}>
+                <IconButton color="inherit">
+                    {color === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+                </IconButton>
             </button>
         </div>
     )

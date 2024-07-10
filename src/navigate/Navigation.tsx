@@ -9,7 +9,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
   const checkbox = (event) => {
     setCheck(false)
   }
-  
+
   const logOut = (event) => {
     onLogOutClick()
     checkbox(event)
@@ -28,37 +28,37 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
     )
   }
 
-  return(
+  return (
     <div>
-      {isLoggedIn && 
-      <nav 
-        className={navigation[0]}
-      >
-        <Modes setCheck={setCheck}/>
-        <h1 
-        // className='nav-padding'
+      {isLoggedIn &&
+        <nav
+          className={navigation[0]}
         >
-          <Link to='/postings/' onClick={(event) => checkbox(event)}>메인 페이지</Link>
-        </h1>
-        <h1>
-          <Link to='/postings/profile' onClick={(event) => checkbox(event)}>{userObj.displayName}의 프로필</Link>
-        </h1>
-        <h1>
-          <Link to='/postings/ranking' onClick={(event) => checkbox(event)}>유저 랭킹</Link>
-        </h1>
-        <h1>
-          <Link to="/postings/" onClick={(event) => {
-            logOut(event)
-          }}>로그아웃</Link>
-        </h1>
-      </nav>
+          <Modes setCheck={setCheck} />
+          <h1
+          // className='nav-padding'
+          >
+            <Link to='/postings/' onClick={(event) => checkbox(event)}>메인 페이지</Link>
+          </h1>
+          <h1>
+            <Link to='/postings/profile' onClick={(event) => checkbox(event)}>{userObj.displayName}의 프로필</Link>
+          </h1>
+          <h1>
+            <Link to='/postings/ranking' onClick={(event) => checkbox(event)}>유저 랭킹</Link>
+          </h1>
+          <h1>
+            <Link to="/postings/" onClick={(event) => {
+              logOut(event)
+            }}>로그아웃</Link>
+          </h1>
+        </nav>
       }
       {!isLoggedIn &&
-        <nav 
-          className={navigation[0]} 
+        <nav
+          className={navigation[0]}
         >
-          <Modes setCheck={setCheck}/>
-          <h1 
+          <Modes />
+          <h1
           // className='nav-padding'
           >
             <Link to='/postings/' onClick={(event) => checkbox(event)}>메인 페이지</Link>
@@ -74,8 +74,8 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
           </h1>
         </nav>
       }
-      </div>
-    )
+    </div>
+  )
 }
 
 export default Navigation
