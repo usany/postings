@@ -24,7 +24,6 @@ const onClick = (color, setColor) => {
 //     colorMode, 
 //     color, setColor }) => {
 //     const theme = useTheme();
-
 //     return (
 //         <button onClick={() => onClick(color, setColor)}>
 //             <IconButton color="inherit">
