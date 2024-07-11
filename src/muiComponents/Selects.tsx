@@ -18,7 +18,7 @@ function Selects({onChangeFrom, onChangeTo}) {
     }
     return (
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="demo-simple-select-standard-label">room</InputLabel>
+            <InputLabel id="demo-simple-select-standard-label">위치가 어디인가요</InputLabel>
             <Select
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
