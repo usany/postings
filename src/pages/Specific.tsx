@@ -34,7 +34,7 @@ function Specific() {
       <div className='flex justify-center'>이 때까지: {state.msgObj.text.clock.year}.{state.msgObj.text.clock.month}.{state.msgObj.text.clock.day} {state.msgObj.text.clocker.hour}:{state.msgObj.text.clocker.minute}</div>
       <div className='flex justify-center'>승낙 유저 이름: {state.msgObj.connectedName}</div>
       <div className='flex justify-center'>진행 단계: {state.msgObj.round}</div>
-      <Btn msgObj={state.msgObj} isOwner={state.isOwner} userObj={state.userObj} num={state.num} value={state.value} />
+      <Btn msgObj={state.msgObj} isOwner={state.isOwner} uid={state.uid} displayName={state.displayName} num={state.num} value={state.value} />
       <div className='flex justify-center'>
         <Button variant='outlined' onClick={onClick}>뒤로 가기</Button>
       </div>
