@@ -7,6 +7,7 @@ import path from './assets/help_FILL0_wght400_GRAD0_opsz24.png';
 import Lotties from 'src/lottiesAnimation/Lotties'
 import Dialogs from 'src/muiComponents/Dialogs'
 import Pickers from 'src/muiComponents/Pickers'
+import Selects from 'src/muiComponents/Selects'
 import Button from '@mui/material/Button';
 
 function Add({ isLoggedIn, userObj, valuing }) {
@@ -158,6 +159,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
 
   return (
     <div className='flex flex-col'>
+        <Selects />
         <div>
             {/* {choose === 0 && 
                 <div className='d-flex justify-content-center btn-group btn-group-toggle'>
@@ -183,7 +185,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
                 <div>
                     <div className='flex justify-center'>위치가 어디인가요</div>
                     <div className='flex justify-center'>
-                        <select className='rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeRoom}>
+                        <select className='dark:bg-black rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeRoom}>
                             <option value={0} disabled>열람실을 알려주세요</option>
                             <option value={1}>one</option>
                             <option value={5}>focus</option>

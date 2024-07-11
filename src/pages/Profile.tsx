@@ -21,23 +21,27 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
   const [error, setError] = useState('')
   const [message, setMessage] = useState([])
   const [messages, setMessages] = useState([])
-  const [newDisplayName, setNewDisplayName] = useState([])
+  const [newDisplayName, setNewDisplayName] = useState('')
   const [num, setNum] = useState(null)
   const element = []
   const elements = []
 
   const onSubmit = async (event) => {
     event.preventDefault()
-    const data = await doc(dbservice, `members/${userObj.uid}`)
-    console.log(userObj.uid)
-    await updateDoc(data, {displayName: newDisplayName});
-    await updateProfile(userObj, {
-      displayName: newDisplayName
-    }).then(() => {
-      window.location.reload(true)
-    }).catch((error) => {
-      console.log('error')
-    })
+    if (newDisplayName === '') {
+      alert('입력이 필요합니다')
+    } else {
+      const data = await doc(dbservice, `members/${userObj.uid}`)
+      console.log(userObj.uid)
+      await updateDoc(data, {displayName: newDisplayName});
+      await updateProfile(userObj, {
+        displayName: newDisplayName
+      }).then(() => {
+        window.location.reload(true)
+      }).catch((error) => {
+        console.log('error')
+      })
+    }
   }
   
   const onChange = (event) => {
@@ -87,14 +91,20 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
     })
   }, [])
 
+  useEffect(() => {
+    setNewDisplayName(
+      userObj.displayName
+    )
+  }, [])
+
   return (  
     <div>
       <div className={side}>
       <div className='flex justify-center'>제 유저 이름은 {userObj.displayName}</div>
       <form id='profile' onSubmit={onSubmit}>
         <div className='flex justify-center'>
-          <input className='form-control' placeholder='유저 이름 바꾸기' value={newDisplayName} type='text' onChange={onChange} />
-          <Button variant='outlined' form='profile' type='submit'>완료</Button>
+          <input className='form-control' placeholder='유저 이름' value={newDisplayName} type='text' onChange={onChange} />
+          <Button variant='outlined' form='profile' type='submit'>유저 이름 바꾸기</Button>
         </div>
       </form>
       <div className='flex justify-center'>

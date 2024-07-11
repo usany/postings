@@ -3,6 +3,19 @@ import Router from 'src/Router'
 import Lotties from 'src/lottiesAnimation/Lotties'
 import { auth } from 'src/baseApi/serverbase'
 import 'src/global.css'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+// import CssBaseline from '@mui/material/CssBaseline';
+
+const lightTheme = createTheme({
+  palette: {
+    mode: 'light',
+  },
+});
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   const [count, setCount] = useState<number>(0)
@@ -10,6 +23,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userObj, setUserObj] = useState(null)
   const [newAccount, setNewAccount] = useState({account: false, round: 0})
+  const [mode, setMode] = useState(localStorage.getItem('theme'))
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -31,7 +46,11 @@ function App() {
   // })
   return (
     <>
-          {init ? <Router isLoggedIn={isLoggedIn} userObj={userObj} newAccount={newAccount} setNewAccount={setNewAccount}/> : <Lotties/>}
+      <ThemeProvider theme={
+        mode !== 'dark' ? lightTheme : darkTheme 
+      }>
+        {init ? <Router isLoggedIn={isLoggedIn} userObj={userObj} newAccount={newAccount} setNewAccount={setNewAccount} setMode={setMode}/> : <Lotties/>}
+      </ThemeProvider>
     </>
   )
 }

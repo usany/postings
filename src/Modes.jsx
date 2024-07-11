@@ -4,14 +4,17 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 
-const onClick = (color, setColor) => {
+
+const onClick = (color, setColor, setMode) => {
     // document.body.classList.toggle("dark-theme")
     document.documentElement.classList.toggle("dark")
     if (color === 'light') {
         setColor('dark')
+        setMode('dark')
         localStorage.setItem("theme", 'dark');
     } else {
         setColor('light')
+        setMode('light')
         localStorage.setItem("theme", 'light');
     }
     // let theme = "light";
@@ -34,8 +37,9 @@ const onClick = (color, setColor) => {
 //     )
 // }
 
-function Modes() {
+function Modes({ setMode }) {
     const [color, setColor] = useState(localStorage.getItem("theme"));
+    
     // useEffect(() => {
     //     localStorage.setItem("theme", color);
     //     if (color === 'dark') {
@@ -60,7 +64,9 @@ function Modes() {
                     colorMode={colorMode} 
                     color={color} setColor={setColor} />
             </ThemeProvider> */}
-            <button onClick={() => onClick(color, setColor)}>
+            <button onClick={() => {
+                onClick(color, setColor, setMode)
+            }}>
                 <IconButton color="inherit">
                     {color === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
                 </IconButton>

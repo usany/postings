@@ -10,7 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import { blue } from '@mui/material/colors';
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 
-function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) {
+function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, setMode }) {
     const [counter, setCounter] = useState([]);
     const [value, setValue] = useState(2);
     // const [side, setSide] = useState('flex flex-col');
@@ -104,7 +104,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount }) 
                         // document.getElementsByClassName('location')[0].style.top=`-${prevScrollPos}px`
                     }}>
                         <div id='navigationSelectorOne' className='w-10 pt-5'>
-                            <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} />
+                            <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} setMode={setMode}/>
                             {userObj ?
                                 <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => {
                                     setCheck(!check)

@@ -5,7 +5,7 @@ import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import Modes from 'src/Modes'
 
 const onLogOutClick = () => auth.signOut();
-function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck }) {
+function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck, setMode }) {
   const checkbox = (event) => {
     setCheck(false)
   }
@@ -34,7 +34,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
         <nav
           className={navigation[0]}
         >
-          <Modes setCheck={setCheck} />
+          <Modes setMode={setMode}/>
           <h1
           // className='nav-padding'
           >
@@ -57,7 +57,7 @@ function Navigation({ isLoggedIn, userObj, setUserObj, setValue, check, setCheck
         <nav
           className={navigation[0]}
         >
-          <Modes />
+          <Modes setMode={setMode}/>
           <h1
           // className='nav-padding'
           >
