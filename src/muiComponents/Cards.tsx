@@ -40,7 +40,9 @@ function Cards({
           image='src/assets/pwa-512x512.png'
         />
         <CardContent>
-            <Typography className='flex justify-center' gutterBottom variant="h5">
+            <Typography className='flex justify-center' 
+              // gutterBottom 
+            variant="h5">
               {msgObj.text.choose === 1 && '빌리기'}
               {msgObj.text.choose === 2 && '빌려주기'}
             </Typography>

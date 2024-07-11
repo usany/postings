@@ -38,10 +38,10 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                     }
                     {value === 2 && <Menu isLoggedIn={isLoggedIn} userObj={userObj} counter={counter} setCounter={setCounter} setValue={setValue} />}
                     {value === 3 && 
-                        <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
+                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
                     }
                     {value === 4 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
+                        <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
                     }
                 </>
             }
