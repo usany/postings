@@ -90,7 +90,8 @@ function Selects({ count, changeBuilding, changeRoom, changeSeat }) {
                     <InputLabel 
                     // id="demo-simple-select-standard-label1"
                     >
-                        {count} 어디인가요</InputLabel>
+                        {count} 어디인가요
+                    </InputLabel>
                     <Select
                         // labelId="demo-simple-select-standard-label1"
                         // id="demo-simple-select-standard"
