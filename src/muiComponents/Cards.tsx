@@ -47,18 +47,18 @@ function Cards({
                 <Chip label='내가 작성함' />
               }
             </div>
-            <div className='flex justify-center' variant="body2" color="text.secondary">
-              <div>
+            <div className='flex flex-col justify-center'>
+              {/* <div> */}
                 <div className='flex justify-center'>{msgObj.text.count} {msgObj.text.counter} {msgObj.text.counting !== '' && msgObj.text.counting}</div>
                 <div className='flex justify-center'>{msgObj.text.clock.year}.{msgObj.text.clock.month}.{msgObj.text.clock.day} {msgObj.text.clock.hour}:{msgObj.text.clock.minute} 부터</div>
                 <div className='flex justify-center'>{msgObj.text.clock.year}.{msgObj.text.clock.month}.{msgObj.text.clock.day} {msgObj.text.clocker.hour}:{msgObj.text.clocker.minute} 까지</div>
-              </div>
+              {/* </div> */}
             </div>
         </CardContent>
+        </Link>
         <CardActions className='flex justify-center'>
           <Btn msgObj={msgObj} isOwner={isOwner} userObj={userObj} isLoggedIn={isLoggedIn} num={num} points={points} setValue={setValue} counter={counter} setCounter={setCounter} />
         </CardActions>
-        </Link>
       </CardActionArea>
     </Card>
   );
