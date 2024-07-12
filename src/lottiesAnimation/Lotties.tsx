@@ -12,7 +12,6 @@ function Lotties() {
     //       preserveAspectRatio: "xMidYMid slice"
     //     }
     // };
-    
     return (
         // <Lottie options={defaultOptions} height={400} width={400} />
         <Lottie animationData={rain} />
