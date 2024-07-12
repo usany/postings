@@ -18,7 +18,6 @@ function Add({ userObj, valuing }) {
   const [process, setProcess] = useState(false)
   const value: number[] = [0, 0]
 
-//   const roomList = ['one', 'two', 'three', 'four', 'focus']
   const changeBuilding = (event) => {
     event.preventDefault()
     const {
@@ -134,25 +133,6 @@ function Add({ userObj, valuing }) {
                             locationTwo={locationTwo} 
                             locationThree={locationThree} 
                             changeBuilding={changeBuilding} changeRoom={changeRoom} changeSeat={changeSeat}/>
-                        {/* {count !== '' && 
-                            <select className='rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeSeat}>  
-                                <option value={0} disabled>좌석을 알려주세요</option>
-                                <option value={0} disabled>{count} 어딘가요</option>
-                                {count == 'one' && roomOne}
-                                {count == 'focus' && roomFocus}
-                                {count == 'two' && roomTwo}
-                                {count == 'three' && roomThree}
-                                {count == 'four' && roomFour}
-                                {count == '중도' && location.cl}
-                                {count == '청운' && location.cw}
-                                {count == '푸른솔' && location.p}
-                                {count == '간호이과대' && location.g}
-                                {count == '경영대' && location.k}
-                                {count == '문과대' && location.m}
-                                {count == '의과대' && location.e}
-                                {count == '치과병원' && location.c}
-                            </select>
-                        } */}
                     </div>
                     <div>언제부터 언제까지인가요</div>
                     <div className='flex justify-center'>
