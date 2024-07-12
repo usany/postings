@@ -12,10 +12,12 @@ const DemoPaper = styled(Paper)(({ theme }) => ({
 
 function Papers({ action, summary}) {
   return (
-    <Stack direction="row" spacing={2}>
-      <DemoPaper variant="elevation">{action}</DemoPaper>
-      <DemoPaper variant="outlined">{summary}</DemoPaper>
-    </Stack>
+    <div>
+      {/* <Stack direction="row" spacing={2}>
+        <DemoPaper variant="elevation">{action}</DemoPaper>
+        <DemoPaper variant="outlined">{summary}</DemoPaper>
+      </Stack> */}
+    </div>
   );
 }
 

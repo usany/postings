@@ -10,8 +10,8 @@ function Avatars({ userObj, msgObj }) {
   //   const altName = null
   // }
   return (
-    <>
-      {userObj &&
+    <div>
+      {/* {userObj &&
         <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src'/>
       }
       {!userObj &&
@@ -19,8 +19,8 @@ function Avatars({ userObj, msgObj }) {
       }
       {msgObj &&
         <Avatar alt={msgObj.displayName} sx={{ bgcolor: blue[500] }} src='./src'/>
-      }
-    </>  
+      } */}
+    </div>  
   )
 }
 

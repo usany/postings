@@ -3,11 +3,11 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
-import FastRewindIcon from '@mui/icons-material/FastRewind';
 import { Link } from 'react-router-dom'
 import Btn from 'src/pages/Btn';
-import Avatar from '@mui/material/Avatar';
-import { blue } from '@mui/material/colors';
+// import FastRewindIcon from '@mui/icons-material/FastRewind';
+// import Avatar from '@mui/material/Avatar';
+// import { blue } from '@mui/material/colors';
 
 function Cards({ 
   msgObj,
@@ -42,15 +42,15 @@ function Cards({
           image='src/assets/pwa-512x512.png'
         />
         <CardContent>
-          {isOwner && 
-            <div>작성함</div>
-          }
             <Typography className='flex justify-center' 
               // gutterBottom 
-            variant="h5">
+              variant="h5">
               {msgObj.text.choose === 1 && '빌리기'}
               {msgObj.text.choose === 2 && '빌려주기'}
             </Typography>
+            {isOwner && 
+              <div>내가 작성함</div>
+            }
             <Typography className='flex justify-center' variant="body2" color="text.secondary">
               <div>
                 {/* <div className='flex justify-center'>
