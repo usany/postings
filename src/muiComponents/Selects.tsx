@@ -89,7 +89,8 @@ function Selects({ count, changeBuilding, changeRoom, changeSeat }) {
                 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel 
                     // id="demo-simple-select-standard-label1"
-                    >{count} 어디인가요</InputLabel>
+                    >
+                        {count} 어디인가요</InputLabel>
                     <Select
                         // labelId="demo-simple-select-standard-label1"
                         // id="demo-simple-select-standard"
