@@ -109,38 +109,6 @@ function Add({ userObj, valuing }) {
   const onChangeTo = (event) => {
     setTo({gmt: event.$d, year: event.$y, month: event.$M+1, day:event.$D, hour: event.$H, minute: event.$m})
 }   
-//   const roomOne = Array(181).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-//   const roomFocus = Array(46).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-//   const roomTwo = Array(315).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-//   const roomThree = Array(156).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-//   const roomFour = Array(149).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-//   const location = {
-//     cl : [
-//         '1열(1F)', 
-//         '2열(2F)', 
-//         '3열(2F)', 
-//         '4열(4F)', 
-//         '1층 책상', 
-//         '1층 세미나실', 
-//         '1층 집중열', 
-//         '매점(2F)', 
-//         '카페(1F)', 
-//         '중앙자료실 책상(3F)', 
-//         '참고열람실 책상(4F)', 
-//         '정기간행물 책상(4F)'
-//     ].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     cw : [
-//         '매점(B1)', 
-//         '글로벌존(B1)'
-//     ].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     p : ['매점(1F)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     g : ['카페(B2)', '열람실(B2)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     k : ['카페'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     m : ['복사실'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     e : ['1열(5F)', '2열(6F)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     c : ['1층 로비'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-//     j : ['1층'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-// }
 
   return (
     <div className='flex flex-col'>
@@ -161,22 +129,6 @@ function Add({ userObj, valuing }) {
                 {!process && 
                 <div>
                     <div className='flex justify-center'>
-                        {/* <select className='dark:bg-black rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeRoom}>
-                            <option value={0} disabled>열람실을 알려주세요</option>
-                            <option value={'one'}>one</option>
-                            <option value={'focus'}>focus</option>
-                            <option value={'two'}>two</option>
-                            <option value={'three'}>three</option>
-                            <option value={'four'}>four</option>
-                            <option value={'중도'}>중도</option>
-                            <option value={'청운'}>청운</option>
-                            <option value={'푸른솔'}>푸른솔</option>
-                            <option value={'간호이과대'}>간호이과대</option>
-                            <option value={'경영대'}>경영대</option>
-                            <option value={'문과대'}>문과대</option>
-                            <option value={'의과대'}>의과대</option>
-                            <option value={'치과병원'}>치과병원</option>
-                        </select> */}
                         <Selects 
                             locationOne={locationOne} 
                             locationTwo={locationTwo} 
