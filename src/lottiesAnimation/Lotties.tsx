@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import Lottie from 'react-lottie'
+// import Lottie from 'react-lottie'
+import Lottie from 'lottie-react'
 import rain from 'src/assets/Animation.json'
 
 function Lotties() {
@@ -11,6 +12,7 @@ function Lotties() {
           preserveAspectRatio: "xMidYMid slice"
         }
     };
+    
     // useEffect(() => {
     //     const color = localStorage.getItem("theme");
     //     if (color === 'dark') {
@@ -20,7 +22,8 @@ function Lotties() {
     //     }
     // })
     return (
-        <Lottie options={defaultOptions} height={400} width={400} />
+        // <Lottie options={defaultOptions} height={400} width={400} />
+        <Lottie animationData={rain} />
     )
 }
 
