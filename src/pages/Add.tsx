@@ -96,8 +96,6 @@ function Add({ userObj, valuing }) {
             connectedId: null,
             connectedName: null,
             })
-            // setCount('')
-            // setCounter(0)
             setProcess(false)
         }
       } else {
