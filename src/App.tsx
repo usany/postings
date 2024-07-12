@@ -4,6 +4,7 @@ import Lotties from 'src/lottiesAnimation/Lotties'
 import { auth } from 'src/baseApi/serverbase'
 import 'src/global.css'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import 'src/assets/pwa-512x512';
 // import CssBaseline from '@mui/material/CssBaseline';
 
 const lightTheme = createTheme({
