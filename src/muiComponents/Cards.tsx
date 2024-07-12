@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom'
 import Btn from 'src/pages/Btn';
+import Chip from '@mui/material/Chip';
 
 function Cards({ 
   msgObj,
@@ -40,10 +41,10 @@ function Cards({
         />
         <CardContent>
             <div className='flex justify-center'>
-              {msgObj.text.choose === 1 && '빌리기'}
-              {msgObj.text.choose === 2 && '빌려주기'}
+              {msgObj.text.choose === 1 && <Chip label='빌리기' />}
+              {msgObj.text.choose === 2 && <Chip label='빌려주기' />}
               {isOwner && 
-                <div>-내가 작성함</div>
+                <Chip label='내가 작성함' />
               }
             </div>
             <div className='flex justify-center' variant="body2" color="text.secondary">
