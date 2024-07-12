@@ -8,8 +8,11 @@ import Button from '@mui/material/Button';
 
 function Add({ userObj, valuing }) {
 //   const [choose, setChoose] = useState(0);
-  const [count, setCount] = useState('');
-  const [counter, setCounter] = useState(0);
+//   const [count, setCount] = useState('');
+//   const [counter, setCounter] = useState(0);
+  const [locationOne, setLocationOne] = useState('');
+  const [locationTwo, setLocationTwo] = useState('');
+  const [locationThree, setLocationThree] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [process, setProcess] = useState(false)
@@ -21,26 +24,29 @@ function Add({ userObj, valuing }) {
     const {
         target: {value},
     } = event;
-    setCount(value);
+    setLocationOne(value);
+    setLocationTwo('');
+    setLocationThree('');
   }
   const changeRoom = (event) => {
     event.preventDefault()
     const {
         target: {value},
     } = event;
-    setCount(value);
+    setLocationTwo(value);
+    setLocationThree('');
   }
   const changeSeat = (event) => {
       event.preventDefault()
       const {
           target: {value},
       } = event;
-      setCounter(value);
+      setLocationThree(value);
   }
 
   const submit = async (event) => {
       event.preventDefault()
-      if(count !== 0 && counter !== 0 && from !== '' && to !== '') {
+      if(locationOne !== '' && locationTwo !== '' && from !== '' && to !== '') {
         if (from.gmt > to.gmt) {
             alert('시간을 확인해주세요')
         } else if (from.gmt < Date.now()) {
@@ -78,23 +84,25 @@ function Add({ userObj, valuing }) {
             text: {choose: value[1], 
                 // count: count, 
                 // counting: roomList[count-1],  
-                counting: count,
-                counter: counter, clock: from, clocker: to},
+                // counting: count,
+                // counter: counter, 
+                count: locationOne,
+                counter: locationTwo, 
+                counting: locationThree,
+                clock: from, clocker: to},
             round: 1,
             creatorClock: Date.now(),
             creatorId: userObj.uid,
             connectedId: null,
             connectedName: null,
             })
-            // setChoose(0)
-            setCount('')
-            setCounter(0)
+            // setCount('')
+            // setCounter(0)
             setProcess(false)
         }
       } else {
           alert('내용을 입력해 주세요')
       }
-    //   console.log(process)
   }
 
   const onChangeFrom = (event) => {
@@ -103,38 +111,38 @@ function Add({ userObj, valuing }) {
   const onChangeTo = (event) => {
     setTo({gmt: event.$d, year: event.$y, month: event.$M+1, day:event.$D, hour: event.$H, minute: event.$m})
 }   
-  const roomOne = Array(181).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-  const roomFocus = Array(46).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-  const roomTwo = Array(315).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-  const roomThree = Array(156).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-  const roomFour = Array(149).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
-  const location = {
-    cl : [
-        '1열(1F)', 
-        '2열(2F)', 
-        '3열(2F)', 
-        '4열(4F)', 
-        '1층 책상', 
-        '1층 세미나실', 
-        '1층 집중열', 
-        '매점(2F)', 
-        '카페(1F)', 
-        '중앙자료실 책상(3F)', 
-        '참고열람실 책상(4F)', 
-        '정기간행물 책상(4F)'
-    ].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    cw : [
-        '매점(B1)', 
-        '글로벌존(B1)'
-    ].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    p : ['매점(1F)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    g : ['카페(B2)', '열람실(B2)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    k : ['카페'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    m : ['복사실'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    e : ['1열(5F)', '2열(6F)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    c : ['1층 로비'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-    j : ['1층'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
-}
+//   const roomOne = Array(181).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
+//   const roomFocus = Array(46).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
+//   const roomTwo = Array(315).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
+//   const roomThree = Array(156).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
+//   const roomFour = Array(149).fill().map((value, index) => <option key={index+1} value={index+1}>{index+1}</option>)
+//   const location = {
+//     cl : [
+//         '1열(1F)', 
+//         '2열(2F)', 
+//         '3열(2F)', 
+//         '4열(4F)', 
+//         '1층 책상', 
+//         '1층 세미나실', 
+//         '1층 집중열', 
+//         '매점(2F)', 
+//         '카페(1F)', 
+//         '중앙자료실 책상(3F)', 
+//         '참고열람실 책상(4F)', 
+//         '정기간행물 책상(4F)'
+//     ].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     cw : [
+//         '매점(B1)', 
+//         '글로벌존(B1)'
+//     ].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     p : ['매점(1F)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     g : ['카페(B2)', '열람실(B2)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     k : ['카페'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     m : ['복사실'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     e : ['1열(5F)', '2열(6F)'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     c : ['1층 로비'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+//     j : ['1층'].map((value, index) => <option key={index+1} value={index+1}>{value}</option>),
+// }
 
   return (
     <div className='flex flex-col'>
@@ -154,9 +162,8 @@ function Add({ userObj, valuing }) {
             <div>
                 {!process && 
                 <div>
-                    {/* <div className='flex justify-center'>위치가 어디인가요</div> */}
                     <div className='flex justify-center'>
-                        <select className='dark:bg-black rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeRoom}>
+                        {/* <select className='dark:bg-black rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeRoom}>
                             <option value={0} disabled>열람실을 알려주세요</option>
                             <option value={'one'}>one</option>
                             <option value={'focus'}>focus</option>
@@ -171,11 +178,15 @@ function Add({ userObj, valuing }) {
                             <option value={'문과대'}>문과대</option>
                             <option value={'의과대'}>의과대</option>
                             <option value={'치과병원'}>치과병원</option>
-                        </select>
-                        <Selects count={count} changeBuilding={changeBuilding} changeRoom={changeRoom} changeSeat={changeSeat}/>
-                        {count !== '' && 
+                        </select> */}
+                        <Selects 
+                            locationOne={locationOne} 
+                            locationTwo={locationTwo} 
+                            locationThree={locationThree} 
+                            changeBuilding={changeBuilding} changeRoom={changeRoom} changeSeat={changeSeat}/>
+                        {/* {count !== '' && 
                             <select className='rounded border border-sky-500' form='selection' defaultValue={0} onChange={changeSeat}>  
-                                {/* <option value={0} disabled>좌석을 알려주세요</option> */}
+                                <option value={0} disabled>좌석을 알려주세요</option>
                                 <option value={0} disabled>{count} 어딘가요</option>
                                 {count == 'one' && roomOne}
                                 {count == 'focus' && roomFocus}
@@ -191,7 +202,7 @@ function Add({ userObj, valuing }) {
                                 {count == '의과대' && location.e}
                                 {count == '치과병원' && location.c}
                             </select>
-                        }
+                        } */}
                     </div>
                     <div>언제부터 언제까지인가요</div>
                     <div className='flex justify-center'>

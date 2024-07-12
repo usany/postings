@@ -10,9 +10,25 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+const locationsCollection = {
+    cl : ['1열(1F)', '2열(2F)', '3열(2F)', '4열(4F)', '집중열(1F)', '1층 책상', '1층 세미나실', '매점(2F)', '카페(1F)', '중앙자료실 책상(3F)', '참고열람실 책상(4F)', '정기간행물 책상(4F)'],
+    cw : ['매점(B1)', '글로벌존(B1)'],
+    p : ['매점(1F)'],
+    g : ['카페(B2)', '열람실(B2)'],
+    k : ['카페'],
+    m : ['복사실'],
+    e : ['1열(5F)', '2열(6F)'],
+    c : ['1층 로비'],
+}
+
 const settingSeats = (number) => {
     return (
         Array(number).fill().map((value, index) => <MenuItem key={index+1} value={index+1}>{index+1}</MenuItem>)
+    )
+}
+const settingLocations = (building) => {
+    return (
+        building.map((value, index) => <MenuItem key={index+1} value={value}>{value}</MenuItem>)
     )
 }
 // const roomOne = Array(181).fill().map((value, index) => <MenuItem key={index+1} value={index+1}>{index+1}</MenuItem>)
@@ -26,37 +42,16 @@ const location = {
     two : settingSeats(315),
     three : settingSeats(156),
     four : settingSeats(149),
-    cl : [
-        '1열(1F)', 
-        '2열(2F)', 
-        '3열(2F)', 
-        '4열(4F)', 
-        '1층 책상', 
-        '1층 세미나실', 
-        '1층 집중열', 
-        '매점(2F)', 
-        '카페(1F)', 
-        '중앙자료실 책상(3F)', 
-        '참고열람실 책상(4F)', 
-        '정기간행물 책상(4F)'
-    ].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    cw : [
-        '매점(B1)', 
-        '글로벌존(B1)'
-    ].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    p : ['매점(1F)'].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    g : ['카페(B2)', '열람실(B2)'].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    k : ['카페'].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    m : ['복사실'].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    e : ['1열(5F)', '2열(6F)'].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    c : ['1층 로비'].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
-    j : ['1층'].map((value, index) => <MenuItem key={index+1} value={index+1}>{value}</MenuItem>),
+    cl : settingLocations(locationsCollection.cl),
+    cw : settingLocations(locationsCollection.cw),
+    p : settingLocations(locationsCollection.p),
+    g : settingLocations(locationsCollection.g),
+    k : settingLocations(locationsCollection.k),
+    m : settingLocations(locationsCollection.m),
+    e : settingLocations(locationsCollection.e),
+    c : settingLocations(locationsCollection.c)
 }
-function Selects({ count, changeBuilding, changeRoom, changeSeat }) {
-    // const [location, setLocation] = useState('')
-    // const handleChange = (event) => {
-    //     setLocation(event.target.value)
-    // }
+function Selects({ locationOne, locationTwo, locationThree, changeBuilding, changeRoom, changeSeat }) {
     return (
         <div>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -66,15 +61,15 @@ function Selects({ count, changeBuilding, changeRoom, changeSeat }) {
                 <Select
                     // labelId="demo-simple-select-standard-label"
                     // id="demo-simple-select-standard"
-                    // value={location}
-                    onChange={changeRoom}
+                    value={locationOne}
+                    onChange={changeBuilding}
                     // label="Age"
                 >
-                    <MenuItem value={'one'}>one</MenuItem>
+                    {/* <MenuItem value={'one'}>one</MenuItem>
                     <MenuItem value={'focus'}>focus</MenuItem>
                     <MenuItem value={'two'}>two</MenuItem>
                     <MenuItem value={'three'}>three</MenuItem>
-                    <MenuItem value={'four'}>four</MenuItem>
+                    <MenuItem value={'four'}>four</MenuItem> */}
                     <MenuItem value={'중도'}>중도</MenuItem>
                     <MenuItem value={'청운'}>청운</MenuItem>
                     <MenuItem value={'푸른솔'}>푸른솔</MenuItem>
@@ -85,35 +80,50 @@ function Selects({ count, changeBuilding, changeRoom, changeSeat }) {
                     <MenuItem value={'치과병원'}>치과병원</MenuItem>
                 </Select>
             </FormControl>
-            {count !== '' &&
+            {locationOne !== '' &&
                 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel 
                     // id="demo-simple-select-standard-label1"
                     >
-                        {count} 어디인가요
+                        {locationOne} 어디인가요
                     </InputLabel>
                     <Select
                         // labelId="demo-simple-select-standard-label1"
                         // id="demo-simple-select-standard"
-                        // value={location}
+                        value={locationTwo}
+                        onChange={changeRoom}
+                        // label="Age"
+                    >
+                        {locationOne == '중도' && location.cl}
+                        {locationOne == '청운' && location.cw}
+                        {locationOne == '푸른솔' && location.p}
+                        {locationOne == '간호이과대' && location.g}
+                        {locationOne == '경영대' && location.k}
+                        {locationOne == '문과대' && location.m}
+                        {locationOne == '의과대' && location.e}
+                        {locationOne == '치과병원' && location.c}
+                    </Select>
+                </FormControl>
+            }
+            {['1열(1F)', '2열(2F)', '3열(2F)', '4열(4F)', '집중열(1F)'].indexOf(locationTwo) !== -1 &&
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                    <InputLabel 
+                    // id="demo-simple-select-standard-label1"
+                    >
+                        {locationThree} 어디인가요
+                    </InputLabel>
+                    <Select
+                        // labelId="demo-simple-select-standard-label1"
+                        // id="demo-simple-select-standard"
+                        value={locationThree}
                         onChange={changeSeat}
                         // label="Age"
                     >
-                        {/* <option value={0} disabled>{count} 어딘가요</option> */}
-                        {count == 'one' && location.one}
-                        {count == 'focus' && location.focus}
-                        {count == 'two' && location.two}
-                        {count == 'three' && location.three}
-                        {count == 'four' && location.four}
-                        {count == '중도' && location.cl}
-                        {count == '청운' && location.cw}
-                        {count == '푸른솔' && location.p}
-                        {count == '간호이과대' && location.g}
-                        {count == '경영대' && location.k}
-                        {count == '문과대' && location.m}
-                        {count == '의과대' && location.e}
-                        {count == '치과병원' && location.c}
-                        {/* {count == '정문 노란 지붕' && location.j} */}
+                        {locationTwo == '1열(1F)' && location.one}
+                        {locationTwo == '2열(2F)' && location.two}
+                        {locationTwo == '3열(2F)' && location.three}
+                        {locationTwo == '4열(4F)' && location.four}
+                        {locationTwo == '집중열(1F)' && location.focus}
                     </Select>
                 </FormControl>
             }
