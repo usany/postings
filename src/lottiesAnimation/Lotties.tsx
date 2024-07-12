@@ -13,14 +13,6 @@ function Lotties() {
         }
     };
     
-    // useEffect(() => {
-    //     const color = localStorage.getItem("theme");
-    //     if (color === 'dark') {
-    //         document.body.classList.add("dark-theme")
-    //     } else {
-    //         document.body.classList.remove("dark-theme")
-    //     }
-    // })
     return (
         // <Lottie options={defaultOptions} height={400} width={400} />
         <Lottie animationData={rain} />
