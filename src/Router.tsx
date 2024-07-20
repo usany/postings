@@ -10,6 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import { blue } from '@mui/material/colors';
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import ToggleTabs from 'src/muiComponents/Tabs'
 
 function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, setMode }) {
     const [counter, setCounter] = useState([]);
@@ -106,6 +107,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                     }}>
                         <div id='navigationSelectorOne' className='w-10 pt-5'>
                             <Navigation scroll={scroll} setScroll={setScroll} isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} setMode={setMode}/>
+                            <div className='flex'>
                             {userObj ?
                                 <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => {
                                     setCheck(!check)
@@ -124,6 +126,19 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                                 :
                                 <Avatar sx={{ bgcolor: blue[500] }} onClick={() => setCheck(!check)} />
                             }
+                            {value === 0 && 
+                                <ToggleTabs num={1} valuing={value} setValuing={setValue}/>
+                            }
+                            {value === 4 && 
+                                <ToggleTabs num={1} valuing={value} setValuing={setValue}/>
+                            }
+                            {value === 1 && 
+                                <ToggleTabs num={2} valuing={value} setValuing={setValue}/>
+                            }
+                            {value === 3 && 
+                                <ToggleTabs num={2} valuing={value} setValuing={setValue}/>
+                            }
+                            </div>
                             {/* <div className='bg-dark-3 dark:bg-light-3'>practice</div> */}
                         </div>
                     </ClickAwayListener>

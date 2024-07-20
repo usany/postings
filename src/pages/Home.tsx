@@ -46,6 +46,7 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                     <Menu isLoggedIn={isLoggedIn} userObj={userObj} counter={counter} setCounter={setCounter} setValue={setValue} />
                 }
                 {[0, 4].indexOf(value) !== -1 && 
+                    <div>
                     <SwipeableViews
                         index={value}
                         onIndexChange={setValue}
@@ -60,8 +61,10 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                             <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={1}/>
                         </div>
                     </SwipeableViews>
+                    </div>
                 }
                 {[1, 3].indexOf(value) !== -1 && 
+                    <div>
                     <SwipeableViews
                         index={value-1}
                         onIndexChange={setValue}
@@ -75,6 +78,7 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                             <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
                         </div>
                     </SwipeableViews>
+                    </div>
                 }
                 
                 {/* <SwipeableViews
