@@ -12,14 +12,14 @@ export default function Snackbars() {
     Transition: Fade,
   });
   
-  function GrowTransition(props) {
+  function growTransition(props) {
     return <Grow {...props} />;
   }
 
-  const handleClick = (Transition) => {
+  const handleClick = (transition) => {
     setOpen({
       open: true,
-      Transition
+      transition
     });
   };
   const handleClose = (
@@ -52,12 +52,12 @@ export default function Snackbars() {
 
   return (
     <div>
-      <Button onClick={() => handleClick(GrowTransition)}>Open Snackbar</Button>
+      <Button onClick={() => handleClick(growTransition)}>Open Snackbar</Button>
       <Snackbar
         open={open.open}
         autoHideDuration={1000}
         onClose={handleClose}
-        message="Success"
+        message="success"
         action={action}
       />
     </div>
