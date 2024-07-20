@@ -36,9 +36,9 @@ function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
             내 상태
         </div>
         <div>
-            <div className='flex justify-center p-5'>
+            <div className='flex justify-center'>
                 <div className='w-6/12 flex flex-col border border-sky-500 rounded'>
-                    <div className='flex justify-center'>빌리기/빌려주기 상태</div>
+                    <div className='flex justify-center'>등록 카드</div>
                     <div className='flex justify-center flex-wrap'>
                         {messages.map((msg) => {
                             if(msg.creatorId === userObj.uid) {
@@ -53,7 +53,7 @@ function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
                     </div>
                 </div>
                 <div className='w-6/12 flex flex-col border border-sky-500 rounded'>
-                    <div className='flex justify-center'>요청/승낙 상태</div>
+                    <div className='flex justify-center'>승낙 카드</div>
                         <div className='flex justify-center flex-wrap'>
                             {messages.map((msg) => {
                                 if(msg.connectedId === userObj.uid) {

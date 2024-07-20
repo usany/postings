@@ -10,7 +10,7 @@ import BeachAccess from '@mui/icons-material/BeachAccess'
 import Badges from 'src/muiComponents/Badges'
 import Paper from '@mui/material/Paper'
 
-function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
+function Navigations({ sides, counter, isLoggedIn, value, setValue, scroll, setScroll }) {
     const navigate = useNavigate()
     // const ref = useRef(counter)
 
@@ -23,13 +23,16 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
     // })
 
     return (
-        <Paper className={sides} elevation={5}>
+        // <Paper sx={{bgcolor: 'rgba(0, 0, 0, 0.1)'}} className={sides} elevation={5}>
+        <div className={sides} >
             {isLoggedIn &&
                 <BottomNavigation
+                    // sx={{bgcolor: 'rgba(0, 0, 0, 0.1)'}}    
                     showLabels
                     value={value}
                     onChange={(event, newValue) => {
                         setValue(newValue)
+                        setScroll(0)
                         navigate('/postings/')
                     }}
                 >
@@ -46,6 +49,7 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
                     value={value}
                     onChange={(event, newValue) => {
                         setValue(newValue)
+                        setScroll(0)
                     }}
                 >
                     <BottomNavigationAction label={'빌리기 목록'} icon={<Checklist />}/>
@@ -53,7 +57,7 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue }) {
                     <BottomNavigationAction label={'빌려주기 목록'} icon={<ChecklistRtl />}/>
                 </BottomNavigation>
             }
-        </Paper>
+        </div>
     )
 }
 

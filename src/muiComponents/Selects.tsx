@@ -9,6 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
 
 const locationsCollection = {
     cl : ['1열(1F)', '2열(2F)', '3열(2F)', '4열(4F)', '집중열(1F)', '1층 책상', '1층 세미나실', '매점(2F)', '카페(1F)', '중앙자료실 책상(3F)', '참고열람실 책상(4F)', '정기간행물 책상(4F)'],
@@ -78,9 +79,10 @@ function Selects({ locationOne, locationTwo, locationThree, changeBuilding, chan
                     <MenuItem value={'문과대'}>문과대</MenuItem>
                     <MenuItem value={'의과대'}>의과대</MenuItem>
                     <MenuItem value={'치과병원'}>치과병원</MenuItem>
+                    <MenuItem value={'직접입력'}>직접입력</MenuItem>
                 </Select>
             </FormControl>
-            {locationOne !== '' &&
+            {locationOne !== '' && locationOne !== '직접입력' &&
                 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel 
                     // id="demo-simple-select-standard-label1"
@@ -110,7 +112,7 @@ function Selects({ locationOne, locationTwo, locationThree, changeBuilding, chan
                     <InputLabel 
                     // id="demo-simple-select-standard-label1"
                     >
-                        {locationThree} 어디인가요
+                        좌석이 어디인가요
                     </InputLabel>
                     <Select
                         // labelId="demo-simple-select-standard-label1"
@@ -128,7 +130,6 @@ function Selects({ locationOne, locationTwo, locationThree, changeBuilding, chan
                 </FormControl>
             }
         </div>
-
     )
 }
 

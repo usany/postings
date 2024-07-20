@@ -4,8 +4,6 @@ import Lotties from 'src/lottiesAnimation/Lotties'
 import { auth } from 'src/baseApi/serverbase'
 import 'src/global.css'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import 'src/assets/pwa-512x512';
-// import CssBaseline from '@mui/material/CssBaseline';
 
 const lightTheme = createTheme({
   palette: {
@@ -50,7 +48,7 @@ function App() {
       <ThemeProvider theme={
         mode !== 'dark' ? lightTheme : darkTheme 
       }>
-        {init ? <Router isLoggedIn={isLoggedIn} userObj={userObj} newAccount={newAccount} setNewAccount={setNewAccount} setMode={setMode}/> : <Lotties/>}
+        {init ? <Router isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} newAccount={newAccount} setNewAccount={setNewAccount} setMode={setMode}/> : <Lotties/>}
       </ThemeProvider>
     </>
   )

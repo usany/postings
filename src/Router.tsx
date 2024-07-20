@@ -9,6 +9,7 @@ import Navigations from 'src/navigate/Navigations'
 import Avatar from '@mui/material/Avatar';
 import { blue } from '@mui/material/colors';
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
 function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, setMode }) {
     const [counter, setCounter] = useState([]);
@@ -33,7 +34,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
             setTimeout(() => window.scrollTo({
                 top: scroll,
                 behavior: "smooth"
-            }), 5);
+            }), 15);
             // setTimeout(() => document.querySelector('#navigationSelectorOne').classList.add('fixed', 'top-0', 'z-20', 'bg-light-1'), 500);
             // setTimeout(() => document.querySelector('#navigationSelectorTwo').classList.add('fixed', 'top-0', 'z-10', 'bg-light-1'), 500);
             // scrolling = window.scrollY
@@ -104,7 +105,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                         // document.getElementsByClassName('location')[0].style.top=`-${prevScrollPos}px`
                     }}>
                         <div id='navigationSelectorOne' className='w-10 pt-5'>
-                            <Navigation isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} setMode={setMode}/>
+                            <Navigation scroll={scroll} setScroll={setScroll} isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} setMode={setMode}/>
                             {userObj ?
                                 <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => {
                                     setCheck(!check)
@@ -149,7 +150,7 @@ function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                         }
                     </Routes>
                 </div>
-                <Navigations sides={sides[1]} counter={counter} isLoggedIn={isLoggedIn} value={value} setValue={setValue} />
+                <Navigations scroll={scroll} setScroll={setScroll} sides={sides[1]} counter={counter} isLoggedIn={isLoggedIn} value={value} setValue={setValue} />
             </div>
         </BrowserRouter>
     )

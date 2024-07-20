@@ -6,10 +6,11 @@ import Pickers from 'src/muiComponents/Pickers'
 import Selects from 'src/muiComponents/Selects'
 import Button from '@mui/material/Button';
 
-function Add({ userObj, valuing }) {
+function Add({ isLoggedIn, userObj, valuing }) {
 //   const [choose, setChoose] = useState(0);
 //   const [count, setCount] = useState('');
 //   const [counter, setCounter] = useState(0);
+  const [locationInput, setLocationInput] = useState('');
   const [locationOne, setLocationOne] = useState('');
   const [locationTwo, setLocationTwo] = useState('');
   const [locationThree, setLocationThree] = useState('');
@@ -18,6 +19,16 @@ function Add({ userObj, valuing }) {
   const [process, setProcess] = useState(false)
   const value: number[] = [0, 0]
 
+  const changeLocationInput = (event) => {
+    event.preventDefault()
+    const {
+        target: {value},
+    } = event;
+    // setLocationOne(value);
+    setLocationInput(event)
+    setLocationTwo('');
+    setLocationThree('');
+  }
   const changeBuilding = (event) => {
     event.preventDefault()
     const {
@@ -84,7 +95,7 @@ function Add({ userObj, valuing }) {
                 // count: count, 
                 // counting: roomList[count-1],  
                 // counting: count,
-                // counter: counter, 
+                // counter: counter,
                 count: locationOne,
                 counter: locationTwo, 
                 counting: locationThree,
@@ -96,6 +107,9 @@ function Add({ userObj, valuing }) {
             connectedName: null,
             })
             setProcess(false)
+            setLocationOne('');
+            setLocationTwo('');
+            setLocationThree('');
         }
       } else {
           alert('내용을 입력해 주세요')
@@ -108,18 +122,17 @@ function Add({ userObj, valuing }) {
   const onChangeTo = (event) => {
     setTo({gmt: event.$d, year: event.$y, month: event.$M+1, day:event.$D, hour: event.$H, minute: event.$m})
 }   
-
   return (
     <div className='flex flex-col'>
         <div>
             {valuing === 0 &&
                 <div className='flex justify-center border border-sky-500'>
-                    빌릴래요
+                    빌리기 카드 등록
                 </div>
             }
-            {valuing === 3 &&
+            {valuing !== 0 &&
                 <div className='flex justify-center border border-sky-500'>
-                    빌려줄래요
+                    빌려주기 카드 등록
                 </div>
             }
         </div>
@@ -134,6 +147,11 @@ function Add({ userObj, valuing }) {
                             locationThree={locationThree} 
                             changeBuilding={changeBuilding} changeRoom={changeRoom} changeSeat={changeSeat}/>
                     </div>
+                    {locationOne === '직접입력' && 
+                        <div className='flex justify-center'>
+                            <input onChange={changeLocationInput} required autoFocus/>
+                        </div>
+                    }
                     <div>언제부터 언제까지인가요</div>
                     <div className='flex justify-center'>
                         <Pickers onChange={onChangeFrom} label={"이 때부터"} />

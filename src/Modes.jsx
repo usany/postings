@@ -3,17 +3,18 @@ import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import Switch from '@mui/material/Switch';
+import Switches from 'src/muiComponents/Switches';
 
-
-const onClick = (color, setColor, setMode) => {
+const onClick = (colors, setColors, setMode) => {
     // document.body.classList.toggle("dark-theme")
     document.documentElement.classList.toggle("dark")
-    if (color === 'light') {
-        setColor('dark')
+    if (colors === 'light') {
+        setColors('dark')
         setMode('dark')
         localStorage.setItem("theme", 'dark');
     } else {
-        setColor('light')
+        setColors('light')
         setMode('light')
         localStorage.setItem("theme", 'light');
     }
@@ -37,8 +38,8 @@ const onClick = (color, setColor, setMode) => {
 //     )
 // }
 
-function Modes({ setMode }) {
-    const [color, setColor] = useState(localStorage.getItem("theme"));
+function Modes({ colors, setColors, setMode }) {
+    // const [color, setColor] = useState(localStorage.getItem("theme"));
     
     // useEffect(() => {
     //     localStorage.setItem("theme", color);
@@ -59,18 +60,25 @@ function Modes({ setMode }) {
 
     return (
         <div className='flex justify-center p-5'>
+        <Switches onClick={() => onClick(colors, setColors, setMode)}/>
             {/* <ThemeProvider theme={theme}>
                 <Button 
                     colorMode={colorMode} 
                     color={color} setColor={setColor} />
             </ThemeProvider> */}
-            <button onClick={() => {
+            {/* {color === 'light' && 
+                <div>
+                    <Brightness7Icon />
+                </div>
+            }
+            <Switch onClick={() => {
                 onClick(color, setColor, setMode)
-            }}>
-                <IconButton color="inherit">
-                    {color === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
-                </IconButton>
-            </button>
+            }} />
+            {color === 'dark' &&
+                <div>
+                    <Brightness4Icon />
+                </div>
+            } */}
         </div>
     )
 }

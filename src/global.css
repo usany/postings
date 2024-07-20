@@ -16,7 +16,7 @@ body {
 } */
 
 .dark body {
-  color: #eee;
+  color: #ddd;
   background: #1a202c;
 }
 /* .mode {
@@ -31,6 +31,24 @@ body {
   width: 100%;
 } */
 
+.ranking-1 {
+  background-color: green;
+}
+.ranking-2 {
+  background-color: green;
+}
+.ranking-3 {
+  background-color: green;
+}
+.ranking-4 {
+  background-color: green;
+}
+.ranking-5 {
+  background-color: green;
+}
+.ranking-6 {
+  background-color: green;
+}
 .pagings {
   padding-top: 60px;
 }

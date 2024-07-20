@@ -6,9 +6,9 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 
-function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, points, setValue, counter, setCounter }) {
+function Btn({ msgObj, isOwner, uid, displayName, isLoggedIn, num, points, setValue, counter, setCounter }) {
   const [move, setMove] = useState(false)
-  
+
   const onDeleteClick = () => {
     const data = doc(dbservice, `num/${msgObj.id}`)
     deleteDoc(data)
@@ -40,7 +40,7 @@ function Btn({ msgObj, isOwner, userObj, isLoggedIn, num, points, setValue, coun
       updateDoc(data, {round: 4});
     } else if (action === 'supporting') {
       if (isLoggedIn) { 
-        updateDoc(data, {round: 2, connectedId: userObj.uid, connectedName: userObj.displayName});
+        updateDoc(data, {round: 2, connectedId: uid, connectedName: displayName});
       } else {
         setMove(true)
       }

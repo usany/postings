@@ -13,8 +13,7 @@ import Button from '@mui/material/Button';
 //   display: flex;
 //   justify-content: center;
 // `
-
-function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSide, sideNavigation, setSideNavigation, check, setCheck, counter }) {
+function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSide, sideNavigation, setSideNavigation, check, setCheck, counter, setCounter }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [newAccount, setNewAccount] = useState(false)
@@ -97,6 +96,10 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
     )
   }, [])
 
+  useEffect(() => {
+    setValue(5)
+  })
+
   return (  
     <div>
       <div className={side}>
@@ -104,6 +107,8 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
       <form id='profile' onSubmit={onSubmit}>
         <div className='flex justify-center'>
           <input className='form-control' placeholder='유저 이름' value={newDisplayName} type='text' onChange={onChange} />
+        </div>
+        <div className='flex justify-center'>
           <Button variant='outlined' form='profile' type='submit'>유저 이름 바꾸기</Button>
         </div>
       </form>
@@ -116,14 +121,14 @@ function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSi
       <div className='flex justify-center flex-wrap'>
         {message.map((msg) => {
           if (msg.round === 5) {
-            return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj}/>)
+            return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue} counter={counter} setCounter={setCounter}/>)
           }
         })}
       </div>
       <div className='flex justify-center flex-wrap'>
         {messages.map((msg) => {
           if (msg.round === 5) { 
-            return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj}/>)
+            return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue} counter={counter} setCounter={setCounter}/>)
           }
         })}
       </div>

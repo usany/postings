@@ -34,9 +34,9 @@ function Message({ msgObj, isOwner, userObj, isLoggedIn, counter, setCounter, se
   })
   
   return (
-    <div className='flex flex-col justify-center p-5'>
+    // <div className='pt-5'>
       <Cards msgObj={msgObj} isOwner={isOwner} userObj={userObj} isLoggedIn={isLoggedIn} num={num} points={points} setValue={setValue} counter={counter} setCounter={setCounter} />
-    </div>
+    // </div>
   )
 }
 

@@ -8,9 +8,15 @@ import Navigations from 'src/navigate/Navigations'
 import Avatars from 'src/muiComponents/Avatars'
 import { dbservice } from 'src/baseApi/serverbase'
 import Navigation from 'src/navigate/Navigation'
+import { SwipeableViews } from "src/navigate/SwipeableViews";
 
 function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccount, side, setSide, sideNavigation, setSideNavigation, setValue, check, setCheck, counter, setCounter}) {
+    const [page, setPage] = useState(0);
+    const [style, setStyle] = useState<React.CSSProperties>({});
+    const [childStyle, setChildStyle] = useState<React.CSSProperties>({});
     const [num, setNum] = useState(null)
+    const [addChange, setAddChange] = useState(0)
+    const [initial, setInitial] = useState([0, 4])
     const checking = () => {
         setCheck(!check)
     }
@@ -23,27 +29,72 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
             }
         })
     }, [])
+    useEffect(() => {
+        if (value >= 5) {
+            setValue(2)
+        } 
+    })
     
+
     return (
-        <>
+        <div>
             {isLoggedIn && 
-                <>
-                    <div className='flex justify-center'>좋은 날씨네요 {userObj.displayName} 님</div>
-                    {isLoggedIn && <div className='flex justify-center'>내 포인트: {num}</div>}
-                    {value === 0 && 
+            <div>
+                <div className='flex justify-center'>좋은 날씨네요 {userObj.displayName} 님</div>
+                {isLoggedIn && <div className='flex justify-center'>내 포인트: {num}</div>}
+                {value === 2 && 
+                    <Menu isLoggedIn={isLoggedIn} userObj={userObj} counter={counter} setCounter={setCounter} setValue={setValue} />
+                }
+                {[0, 4].indexOf(value) !== -1 && 
+                    <SwipeableViews
+                        index={value}
+                        onIndexChange={setValue}
+                        num={1}
+                        // initial={[0, 4]}
+                        // setInitial={setInitial}
+                    >
+                        <div>
+                            <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={0}/>
+                        </div>
+                        <div>
+                            <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={1}/>
+                        </div>
+                    </SwipeableViews>
+                }
+                {[1, 3].indexOf(value) !== -1 && 
+                    <SwipeableViews
+                        index={value-1}
+                        onIndexChange={setValue}
+                        num={2}
+                        // initial={[1, 3]}
+                    >
+                        <div>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                        </div>
+                        <div>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                        </div>
+                    </SwipeableViews>
+                }
+                
+                {/* <SwipeableViews
+                    index={value}
+                    onIndexChange={setValue}
+                >
+                    <div>
                         <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
-                    }
-                    {value === 1 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
-                    }
-                    {value === 2 && <Menu isLoggedIn={isLoggedIn} userObj={userObj} counter={counter} setCounter={setCounter} setValue={setValue} />}
-                    {value === 3 && 
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue}/>
-                    }
-                    {value === 4 &&
+                    </div>
+                    <div>
+                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                    </div>
+                    <div>
+                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                    </div>
+                    <div>
                         <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
-                    }
-                </>
+                    </div>
+                </SwipeableViews> */}
+            </div>
             }
             {!isLoggedIn &&
                 <>
@@ -58,7 +109,7 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                     }
                 </>
             }
-        </>
+        </div>
     )
 }
 

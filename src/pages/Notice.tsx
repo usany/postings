@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
-function Notice({ isLoggedIn, userObj, valuing, setValue }) {
+function Notice({ isLoggedIn, userObj, valuing, setValue, counter, setCounter }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -21,33 +21,44 @@ function Notice({ isLoggedIn, userObj, valuing, setValue }) {
 
   return (  
     <div className='p-5'>
-        <div>
-            {valuing === 1 &&
-                <div className='flex justify-center'>
-                    빌리기 게시판
-                </div>
-            }
-            {valuing === 4 &&
-                <div className='flex justify-center'>
-                    빌려주기 게시판  
-                </div>
-            }
+        {/* <div className='flex justify-start text-2xl'>
+            빌리기 카드 목록
         </div>
         <div className='flex justify-center flex-wrap'>
-            {valuing === 1 && messages.map((msg) => {
-                if (msg.text.choose === 1 && msg.round === 1) {
-                    return(
-                        <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue}/>
-                    )
-                }
-            })}
-            {valuing === 4 && messages.map((msg) => {
-                if (msg.text.choose === 2 && msg.round === 1) {
-                    return(
-                        <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue}/>
-                    )
-                }
-            })}
+                {
+                    messages.map((msg) => {
+                        if (msg.text.choose === 1 && msg.round === 1) {
+                            return(
+                                <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                            )
+                        }
+                    })
+                } */}
+        {valuing === 1 &&
+            <div className='flex justify-start text-2xl'>
+                빌리기 카드 목록
+            </div>
+        }
+        {valuing !== 1 &&
+            <div className='flex justify-start text-2xl'>
+                빌려주기 카드 목록  
+            </div>
+        }
+        <div className='flex justify-center flex-wrap'>
+                {valuing === 1 && messages.map((msg) => {
+                    if (msg.text.choose === 1 && msg.round === 1) {
+                        return(
+                            <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                        )
+                    }
+                })}
+                {valuing === 4 && messages.map((msg) => {
+                    if (msg.text.choose === 2 && msg.round === 1) {
+                        return(
+                            <Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                        )
+                    }
+                })}
         </div>
     </div>
   )
