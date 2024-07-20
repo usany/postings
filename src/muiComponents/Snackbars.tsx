@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Fade from '@mui/material/Fade';
 import Grow from '@mui/material/Grow';
 
-
 export default function Snackbars() {
   const [open, setOpen] = useState({
     open: false,
