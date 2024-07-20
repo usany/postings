@@ -16,7 +16,7 @@ export default function Snackbars() {
   function GrowTransition(props) {
     return <Grow {...props} />;
   }
-  
+
   const handleClick = (Transition) => {
     setOpen({
       open: true,
@@ -28,7 +28,6 @@ export default function Snackbars() {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen({
       ...open,
       open: false,
