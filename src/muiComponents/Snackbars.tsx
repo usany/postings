@@ -23,7 +23,6 @@ export default function Snackbars() {
       Transition
     });
   };
-
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -33,7 +32,6 @@ export default function Snackbars() {
       open: false,
     });
   };
-
   const action = (
     <div>
       <Button color="primary" size="small" onClick={handleClose}>
