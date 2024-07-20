@@ -16,6 +16,7 @@ export default function Snackbars() {
   function GrowTransition(props) {
     return <Grow {...props} />;
   }
+  
   const handleClick = (Transition) => {
     setOpen({
       open: true,
