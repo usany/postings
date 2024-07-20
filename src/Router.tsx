@@ -11,6 +11,7 @@ import { blue } from '@mui/material/colors';
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import ToggleTabs from 'src/muiComponents/Tabs'
+import Snackbars from 'src/muiComponents/Snackbars'
 
 function Router({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, setMode }) {
     const [counter, setCounter] = useState([]);

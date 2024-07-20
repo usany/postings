@@ -1,14 +1,26 @@
-import * as React from 'react';
+import { useState } from 'react'
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Fade from '@mui/material/Fade';
+import Grow from '@mui/material/Grow';
+
 
 export default function Snackbars() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClick = () => {
-    setOpen(true);
+  const [open, setOpen] = useState({
+    open: false,
+    Transition: Fade,
+  });
+  
+  function GrowTransition(props) {
+    return <Grow {...props} />;
+  }
+  const handleClick = (Transition) => {
+    setOpen({
+      open: true,
+      Transition
+    });
   };
 
   const handleClose = (event, reason) => {
@@ -16,12 +28,15 @@ export default function Snackbars() {
       return;
     }
 
-    setOpen(false);
+    setOpen({
+      ...open,
+      open: false,
+    });
   };
 
   const action = (
-    <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
+    <div>
+      <Button color="primary" size="small" onClick={handleClose}>
         UNDO
       </Button>
       <IconButton
@@ -32,17 +47,17 @@ export default function Snackbars() {
       >
         <CloseIcon fontSize="small" />
       </IconButton>
-    </React.Fragment>
+    </div>
   );
 
   return (
     <div>
-      <Button onClick={handleClick}>Open Snackbar</Button>
+      <Button onClick={() => handleClick(GrowTransition)}>Open Snackbar</Button>
       <Snackbar
-        open={open}
-        autoHideDuration={6000}
+        open={open.open}
+        autoHideDuration={1000}
         onClose={handleClose}
-        message="Note archived"
+        message="Success"
         action={action}
       />
     </div>

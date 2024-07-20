@@ -4,6 +4,7 @@ import { auth, onSocialClick, dbservice, storage } from 'src/baseApi/serverbase'
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import Modes from 'src/Modes'
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Snackbars from 'src/muiComponents/Snackbars'
 
 const onLogOutClick = () => auth.signOut();
 function Navigation({ scroll, setScroll, isLoggedIn, userObj, setUserObj, setValue, check, setCheck, setMode }) {
@@ -87,6 +88,7 @@ function Navigation({ scroll, setScroll, isLoggedIn, userObj, setUserObj, setVal
               logOut(event)
             }}>로그아웃</Link>
           </h1>
+          <Snackbars />
         </nav>
       }
       {!isLoggedIn &&
