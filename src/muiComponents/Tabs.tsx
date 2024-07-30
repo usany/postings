@@ -76,10 +76,16 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
 
   return (
     <Box>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Borrow" {...a11yProps(0)} />
-          <Tab label="Lend" {...a11yProps(1)} />
+      <Box sx={{ paddingX: '10px', 
+        // borderBottom: 0, 
+        // borderColor: 'divider' 
+        }}>
+        <Tabs
+          // textColor="secondary"
+          // indicatorColor="secondary"
+          value={value} onChange={handleChange} aria-label="basic tabs example">
+          <Tab label="빌리기" {...a11yProps(0)} />
+          <Tab label="빌려주기" {...a11yProps(1)} />
           {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
       </Box>

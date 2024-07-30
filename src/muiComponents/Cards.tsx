@@ -22,17 +22,30 @@ function Cards({
   setCounter
 }) {
   const [specific, setSpecific] = useState(false)
-  const shadowColorArray = ['green', 'blue', 'blue']
+  const shadowColorArray = [
+    'lightblue', 
+    'lightcoral',
+    'lightcyan',
+    'lightgoldenrodyellow',
+    'lightgray',
+    'lightgreen', 
+    'lightpink',
+    'lightsalmon',
+    'lightseagreen',
+    'lightskyblue',
+    'lightsteelblue', 
+    'lightyellow'
+  ]
   let shadowColor;
   // console.log(/[a-z]/.exec(/[a-z]/))
-  if (/[a-z]/.exec(String(msgObj.id[0]).toLowerCase()) === String(msgObj.id[0]).toLowerCase()) {
-    shadowColor = 'green';
-  }  
+  // if (/[a-z]/.exec(String(msgObj.id[0]).toLowerCase()) === String(msgObj.id[0]).toLowerCase()) {
+  //   shadowColor = 'green';
+  // }  
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
   const letters = alpha.map((x) => String.fromCharCode(x));
   if (letters.indexOf(String(msgObj.id[0]).toUpperCase())%2 === 0) {
   }
-  shadowColor = shadowColorArray[letters.indexOf(String(msgObj.id[0]).toUpperCase())%3];
+  shadowColor = shadowColorArray[letters.indexOf(String(msgObj.id[0]).toUpperCase())%shadowColorArray.length];
   // console.log(letters);
 
   return (
