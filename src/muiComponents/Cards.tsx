@@ -55,12 +55,14 @@ function Cards({
         boxShadow: `1.9px 1.9px 1.9px 1.9px ${shadowColor}`
       }}
     >
-      <CardActionArea onClick={() => setSpecific({
-        msgObj: msgObj,
-        isOwner: isOwner,
-        num: num,
-        points: points
-      })}>
+      <CardActionArea 
+        // onClick={() => setSpecific({
+        //   msgObj: msgObj,
+        //   isOwner: isOwner,
+        //   num: num,
+        //   points: points
+        // })}
+      >
         <Link 
           to='/postings/specific'
           state = {{
