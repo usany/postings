@@ -56,12 +56,12 @@ const Motions = () => {
             >
                 {/* Render duplicated slides */}
                 {duplicatedSlides.map((slide, index) => (
-                    <span key={index} className="flex flex-shrink-0 px-5" 
+                    <span key={index} className="flex flex-shrink-0 px-5 text-xl" 
                         // style={{ width: `${(slide.musician.length+slide.title.length)+300}px` }}
                     >
-                        <span className="flex text-xl">
+                        {/* <span className="text-xl"> */}
                             {slide.title} - {slide.musician}
-                        </span>
+                        {/* </span> */}
                     </span>
                 ))}
             </motion.div>
