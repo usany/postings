@@ -46,7 +46,7 @@ const Motions = () => {
             <motion.div
                 className="flex"
                 animate={{
-                    x: ['0%', '-1900%'],
+                    x: ['0%', '-2200%'],
                     transition: {
                         ease: 'linear',
                         duration: 300,
