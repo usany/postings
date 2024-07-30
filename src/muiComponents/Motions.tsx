@@ -59,9 +59,10 @@ const Motions = () => {
                     <span key={index} className="flex flex-shrink-0 px-5 text-xl" 
                         // style={{ width: `${(slide.musician.length+slide.title.length)+300}px` }}
                     >
-                        {/* <span className="text-xl"> */}
+                        {slide.title} - {slide.musician}
+                        {/* <span className="text-xl">
                             {slide.title} - {slide.musician}
-                        {/* </span> */}
+                        </span> */}
                     </span>
                 ))}
             </motion.div>
