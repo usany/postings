@@ -14,7 +14,7 @@ const Motions = () => {
         { musician: '비스트(Beast)', title: '비가 오는 날'},
         { musician: '김태우', title: '사랑비'},
         { musician: '에픽하이 (EPIK HIGH)', title: '비 오는 날 듣기 좋은 노래'},
-        { musician: '아이유(IU)', title: '잠 못 드는 밤 비는 내리고'},
+        { musician: '김건모', title: '잠 못 드는 밤 비는 내리고'},
         { musician: '윤하', title: '비가 내리는 날에는'},
         { musician: '정인', title: '장마'},
         { musician: '김현식', title: '비처럼 음악처럼'},
@@ -22,6 +22,8 @@ const Motions = () => {
         { musician: '윤하', title: '소나기'},
         { musician: '부활', title: '소나기'},
         { musician: '에릭남(Eric Nam)', title: '소나기'},
+        { musician: '이승철', title: '비가 와'},
+        { musician: '장범준', title: '추적이는 여름 비가 되어'},
     ];
     
     let currentIndex = slides.length
@@ -57,7 +59,7 @@ const Motions = () => {
                     <span key={index} className="flex flex-row flex-shrink-0 px-5" 
                         // style={{ width: `${(slide.musician.length+slide.title.length)+300}px` }}
                     >
-                        <span className="flex flex-col h-full text-base">
+                        <span className="flex flex-col text-base">
                             {slide.title} - {slide.musician}
                         </span>
                     </span>
