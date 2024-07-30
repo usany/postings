@@ -59,7 +59,7 @@ const Motions = () => {
                     <span key={index} className="flex flex-row flex-shrink-0 px-5" 
                         // style={{ width: `${(slide.musician.length+slide.title.length)+300}px` }}
                     >
-                        <span className="flex flex-col text-base">
+                        <span className="flex flex-col text-xl">
                             {slide.title} - {slide.musician}
                         </span>
                     </span>
