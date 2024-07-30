@@ -46,7 +46,7 @@ const Motions = () => {
             <motion.div
                 className="flex"
                 animate={{
-                    x: ['0%', '-2100%'],
+                    x: ['0%', `-${(slides.length-1)*100}%`],
                     transition: {
                         ease: 'linear',
                         duration: 300,
