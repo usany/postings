@@ -24,6 +24,7 @@ const Motions = () => {
         { musician: '에릭남(Eric Nam)', title: '소나기'},
         { musician: '이승철', title: '비가 와'},
         { musician: '장범준', title: '추적이는 여름 비가 되어'},
+        { musician: '버스커 버스커', title: '소나기 (주르르루)'},
     ];
     
     let currentIndex = slides.length
