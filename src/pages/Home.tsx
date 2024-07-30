@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { doc, onSnapshot, query } from 'firebase/firestore';
 import Menu from 'src/pages/Menu'
 import Notice from 'src/pages/Notice'
@@ -10,16 +10,13 @@ import { dbservice } from 'src/baseApi/serverbase'
 import Navigation from 'src/navigate/Navigation'
 import { SwipeableViews } from "src/navigate/SwipeableViews";
 
-function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccount, side, setSide, sideNavigation, setSideNavigation, setValue, check, setCheck, counter, setCounter}) {
-    const [page, setPage] = useState(0);
+function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue, counter, setCounter }) {
     const [style, setStyle] = useState<React.CSSProperties>({});
     const [childStyle, setChildStyle] = useState<React.CSSProperties>({});
-    const [num, setNum] = useState(null)
-    const [addChange, setAddChange] = useState(0)
-    const [initial, setInitial] = useState([0, 4])
-    const checking = () => {
-        setCheck(!check)
-    }
+    const [num, setNum] = useState<number>(0)
+    // const checking = () => {
+    //     setCheck(!check)
+    // }
     
     useEffect(() => {
         onSnapshot(query(doc(dbservice, `members/${userObj.uid}`)), (snapshot) => {
@@ -55,10 +52,10 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                         // setInitial={setInitial}
                     >
                         <div>
-                            <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={0}/>
+                            <Add userObj={userObj} valuing={0}/>
                         </div>
                         <div>
-                            <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={1}/>
+                            <Add userObj={userObj} valuing={1}/>
                         </div>
                     </SwipeableViews>
                     </div>
@@ -72,10 +69,10 @@ function Home({ isLoggedIn, userObj, setUserObj, value, newAccount, setNewAccoun
                         // initial={[1, 3]}
                     >
                         <div>
-                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue} counter={counter} setCounter={setCounter}/>
                         </div>
                         <div>
-                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={3} setValue={setValue} counter={counter} setCounter={setCounter}/>
                         </div>
                     </SwipeableViews>
                     </div>

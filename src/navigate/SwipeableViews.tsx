@@ -10,6 +10,7 @@ export function SwipeableViews({
   ...rootProps
 }: {
   index: number;
+  num: number;
   onIndexChange: (page: number) => void;
 } & React.HTMLProps<HTMLDivElement>) {
   const containerRef = useRef<HTMLDivElement>(null);

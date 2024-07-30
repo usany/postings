@@ -6,18 +6,18 @@ import Pickers from 'src/muiComponents/Pickers'
 import Selects from 'src/muiComponents/Selects'
 import Button from '@mui/material/Button';
 
-function Add({ isLoggedIn, userObj, valuing }) {
+function Add({ userObj, valuing }: {userObj: object, valuing: number}) {
 //   const [choose, setChoose] = useState(0);
 //   const [count, setCount] = useState('');
 //   const [counter, setCounter] = useState(0);
-  const [locationInput, setLocationInput] = useState('');
-  const [locationOne, setLocationOne] = useState('');
-  const [locationTwo, setLocationTwo] = useState('');
-  const [locationThree, setLocationThree] = useState('');
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState('');
-  const [process, setProcess] = useState(false)
-  const value: number[] = [0, 0]
+  const [locationInput, setLocationInput] = useState<string>('');
+  const [locationOne, setLocationOne] = useState<string>('');
+  const [locationTwo, setLocationTwo] = useState<string>('');
+  const [locationThree, setLocationThree] = useState<string>('');
+  const [from, setFrom] = useState<string>('');
+  const [to, setTo] = useState<string>('');
+  const [process, setProcess] = useState<boolean>(false)
+  const value: number[] = [0, valuing+1]
 
   const changeLocationInput = (event) => {
     event.preventDefault()
@@ -56,7 +56,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
 
   const submit = async (event) => {
       event.preventDefault()
-      if(locationOne !== '' && locationTwo !== '' && from !== '' && to !== '') {
+      if((locationInput !== '' || (locationOne !== '' && locationTwo !== '')) && from !== '' && to !== '') {
         if (from.gmt > to.gmt) {
             alert('시간을 확인해주세요')
         } else if (from.gmt < Date.now()) {
@@ -65,6 +65,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
             alert('시간을 확인해주세요')    
         }
         else {
+            {locationInput && setLocationOne(locationInput)}
             console.log(to.year-from.year)
             console.log(to.month-from.month)
             console.log(to.day-from.day)
@@ -82,27 +83,29 @@ function Add({ isLoggedIn, userObj, valuing }) {
             } else if (to.minute-from.minute > 0) {
                 value[0] = to.minute-from.minute
             }
-            if (valuing === 0) {
-                value[1] = 1
-            } else {
-                value[1] = 2
-            }
+            // if (valuing === 0) {
+            //     value[1] = 1
+            // } else {
+            //     value[1] = 2
+            // }
             setProcess(true)
+            let location
+            if (locationOne === '직접입력') {
+                location = locationInput
+            } else {
+                location = locationOne
+            }
             await addDoc(collection(dbservice, 'num'), {
             point: value[0],
-            displayName: userObj.displayName,
+            displayName: userObj?.displayName,
             text: {choose: value[1], 
-                // count: count, 
-                // counting: roomList[count-1],  
-                // counting: count,
-                // counter: counter,
-                count: locationOne,
+                count: location,
                 counter: locationTwo, 
                 counting: locationThree,
                 clock: from, clocker: to},
             round: 1,
             creatorClock: Date.now(),
-            creatorId: userObj.uid,
+            creatorId: userObj?.uid,
             connectedId: null,
             connectedName: null,
             })
@@ -130,7 +133,7 @@ function Add({ isLoggedIn, userObj, valuing }) {
                     빌리기 카드 등록
                 </div>
             }
-            {valuing !== 0 &&
+            {valuing === 1 &&
                 <div className='flex justify-center border border-sky-500'>
                     빌려주기 카드 등록
                 </div>

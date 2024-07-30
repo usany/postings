@@ -2,13 +2,13 @@ import { useState } from 'react'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom'
 import Btn from 'src/pages/Btn';
 import Chip from '@mui/material/Chip';
 import staticImg from 'src/assets/pwa-512x512.png';
-import { Fragment } from 'react/jsx-runtime';
+// import { Fragment } from 'react/jsx-runtime';
 
 function Cards({ 
   msgObj,
@@ -24,7 +24,7 @@ function Cards({
   const [specific, setSpecific] = useState(false)
   const shadowColorArray = ['green', 'blue', 'blue']
   let shadowColor;
-  console.log(/[a-z]/.exec(/[a-z]/))
+  // console.log(/[a-z]/.exec(/[a-z]/))
   if (/[a-z]/.exec(String(msgObj.id[0]).toLowerCase()) === String(msgObj.id[0]).toLowerCase()) {
     shadowColor = 'green';
   }  
@@ -33,7 +33,7 @@ function Cards({
   if (letters.indexOf(String(msgObj.id[0]).toUpperCase())%2 === 0) {
   }
   shadowColor = shadowColorArray[letters.indexOf(String(msgObj.id[0]).toUpperCase())%3];
-  console.log(letters);
+  // console.log(letters);
 
   return (
     <div className='p-5 max-w-60 min-w-20'>

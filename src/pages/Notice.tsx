@@ -2,12 +2,9 @@ import { useState, useEffect } from 'react'
 import { collection, addDoc, getDocs, doc, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { auth, onSocialClick, dbservice, storage } from 'src/baseApi/serverbase'
 import Message from 'src/pages/Message'
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 
 function Notice({ isLoggedIn, userObj, valuing, setValue, counter, setCounter }) {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Array<object>>([]);
 
   useEffect(() => {
     onSnapshot(query(collection(dbservice, 'num'), orderBy('creatorClock', 'desc')), (snapshot) => {
