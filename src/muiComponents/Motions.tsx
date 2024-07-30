@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Define the array of slides with numbers
-
 const Motions = () => {
     const slides = [
         { musician: '에픽하이 (EPIK HIGH)', title: '우산 (Feat. 윤하)'},
@@ -36,6 +34,7 @@ const Motions = () => {
         slides[currentIndex] = slides[randomIndex];
         slides[randomIndex] = temporaryValue;
     }
+    
     // Duplicate the slides array to ensure seamless looping
     const duplicatedSlides = [...slides, ...slides];
 
