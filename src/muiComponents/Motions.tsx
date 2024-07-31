@@ -24,6 +24,16 @@ const Motions = () => {
         { musician: '이승철', title: '비가 와'},
         { musician: '장범준', title: '추적이는 여름 비가 되어'},
         { musician: '버스커 버스커', title: '소나기 (주르르루)'},
+        { musician: '토이, 윤하', title: '오늘 서울은 하루종일 맑음 (Vocal 윤하)'},
+        { musician: '폴킴', title: '모든 날, 모든 순간 (Every day, Every Moment)'},
+        { musician: '아이유(IU)', title: '좋은 날'},
+        { musician: 'AKMU(악뮤)', title: '오랜 날 오랜 밤'},
+        { musician: '김완선', title: '기분 좋은 날'},
+        { musician: '장범준', title: '추적이는 여름 비가 되어'},
+        { musician: '러브홀릭스', title: 'Raining (Feat. 크리스티나 of Clazziquai)'},
+        { musician: '방탄소년단', title: 'Rain'},
+        { musician: 'San E(산이), 로코베리', title: '오늘 날씨 맑음'},
+        { musician: 'KCM', title: '오늘도 맑음'},
     ];
     
     let currentIndex = slides.length

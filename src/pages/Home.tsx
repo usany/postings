@@ -1,44 +1,43 @@
-import React, { useState, useEffect } from 'react'
-import { doc, onSnapshot, query } from 'firebase/firestore';
+import { useState, useEffect } from 'react'
+// import { doc, onSnapshot, query } from 'firebase/firestore';
 import Menu from 'src/pages/Menu'
 import Notice from 'src/pages/Notice'
 import Auth from 'src/pages/Auth'
 import Add from 'src/pages/Add'
-import Navigations from 'src/navigate/Navigations'
-import Avatars from 'src/muiComponents/Avatars'
-import { dbservice } from 'src/baseApi/serverbase'
-import Navigation from 'src/navigate/Navigation'
+// import Navigations from 'src/navigate/Navigations'
+// import Avatars from 'src/muiComponents/Avatars'
+// import { dbservice } from 'src/baseApi/serverbase'
+// import Navigation from 'src/navigate/Navigation'
 import { SwipeableViews } from "src/navigate/SwipeableViews";
 
 function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue, counter, setCounter }) {
-    const [style, setStyle] = useState<React.CSSProperties>({});
-    const [childStyle, setChildStyle] = useState<React.CSSProperties>({});
-    const [num, setNum] = useState<number>(0)
+    // const [style, setStyle] = useState<React.CSSProperties>({});
+    // const [childStyle, setChildStyle] = useState<React.CSSProperties>({});
+    // const [points, setPoints] = useState<number>(0)
     // const checking = () => {
     //     setCheck(!check)
     // }
     
-    useEffect(() => {
-        onSnapshot(query(doc(dbservice, `members/${userObj.uid}`)), (snapshot) => {
-            if (isLoggedIn) {
-                const number = snapshot.data().points
-                setNum(number)
-            }
-        })
-    }, [])
+    // useEffect(() => {
+    //     onSnapshot(query(doc(dbservice, `members/${userObj.uid}`)), (snapshot) => {
+    //         if (isLoggedIn) {
+    //             const number = snapshot.data().points
+    //             setPoints(number)
+    //         }
+    //     })
+    // }, [])
     useEffect(() => {
         if (value >= 5) {
             setValue(2)
         } 
     })
     
-
     return (
         <div>
             {isLoggedIn && 
             <div>
-                <div className='flex justify-center'>좋은 날씨네요 {userObj.displayName} 님</div>
-                {isLoggedIn && <div className='flex justify-center'>내 포인트: {num}</div>}
+                {/* <div className='flex justify-center'>좋은 날씨네요 {userObj.displayName} 님</div>
+                {isLoggedIn && <div className='flex justify-center'>내 포인트: {points}</div>} */}
                 {value === 2 && 
                     <Menu isLoggedIn={isLoggedIn} userObj={userObj} counter={counter} setCounter={setCounter} setValue={setValue} />
                 }
@@ -77,24 +76,6 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue,
                     </SwipeableViews>
                     </div>
                 }
-                
-                {/* <SwipeableViews
-                    index={value}
-                    onIndexChange={setValue}
-                >
-                    <div>
-                        <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
-                    </div>
-                    <div>
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
-                    </div>
-                    <div>
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={value} setValue={setValue} counter={counter} setCounter={setCounter}/>
-                    </div>
-                    <div>
-                        <Add isLoggedIn={isLoggedIn} userObj={userObj} valuing={value}/>
-                    </div>
-                </SwipeableViews> */}
             </div>
             }
             {!isLoggedIn &&

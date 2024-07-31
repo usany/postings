@@ -32,7 +32,10 @@ function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
   
     return (
         <div className='flex justify-center flex-col pb-5'>
-            <div className='flex justify-center border border-sky-500'>
+            {/* <div className='flex justify-center border border-sky-500'>
+                내 상태
+            </div> */}
+            <div className='flex justify-start text-2xl p-5'>
                 내 상태
             </div>
             <div>

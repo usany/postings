@@ -5,12 +5,23 @@ import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import Modes from 'src/Modes'
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Snackbars from 'src/muiComponents/Snackbars'
+import { doc, onSnapshot, query } from 'firebase/firestore';
 
 const onLogOutClick = () => auth.signOut();
 function Navigation({ scroll, setScroll, isLoggedIn, userObj, setUserObj, setValue, check, setCheck, setMode }) {
   const [colors, setColors] = useState(localStorage.getItem("theme"));
   const [color, setColor] = useState('#e2e8f0');
   const [backgroundColor, setBackgroundColor] = useState('#e2e8f0');
+  const [points, setPoints] = useState<number>(0)
+
+  useEffect(() => {
+    onSnapshot(query(doc(dbservice, `members/${userObj.uid}`)), (snapshot) => {
+        if (isLoggedIn) {
+            const number = snapshot.data().points
+            setPoints(number)
+        }
+    })
+  }, [])
   const checkbox = (event) => {
     setCheck(false)
     setScroll(0)
@@ -65,7 +76,13 @@ function Navigation({ scroll, setScroll, isLoggedIn, userObj, setUserObj, setVal
           className='w-full'
           // className={navigation[0]}
         >
-          <Modes colors={colors} setColors={setColors} setMode={setMode}/>
+          <div className='flex'>
+            <div className='p-5'>
+              <div className='flex justify-center'>좋은 날씨네요 {userObj.displayName} 님</div>
+              {isLoggedIn && <div className='flex justify-center'>내 포인트: {points}</div>}
+            </div>
+            <Modes colors={colors} setColors={setColors} setMode={setMode}/>
+          </div>
           <h1
           // className='nav-padding'
           >
@@ -93,7 +110,8 @@ function Navigation({ scroll, setScroll, isLoggedIn, userObj, setUserObj, setVal
       }
       {!isLoggedIn &&
         <nav
-          className={navigation[0]}
+          className='w-full'
+          // className={navigation[0]}
         >
           <Modes setMode={setMode}/>
           <h1

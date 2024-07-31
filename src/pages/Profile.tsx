@@ -14,16 +14,14 @@ import Button from '@mui/material/Button';
 //   justify-content: center;
 // `
 function Profile({ isLoggedIn, userObj, setUserObj, value, setValue, side, setSide, sideNavigation, setSideNavigation, check, setCheck, counter, setCounter }) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [newAccount, setNewAccount] = useState(false)
-  const [error, setError] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [newAccount, setNewAccount] = useState(false)
+  // const [error, setError] = useState('')
   const [message, setMessage] = useState([])
   const [messages, setMessages] = useState([])
   const [newDisplayName, setNewDisplayName] = useState('')
   const [num, setNum] = useState(null)
-  const element = []
-  const elements = []
 
   const onSubmit = async (event) => {
     event.preventDefault()

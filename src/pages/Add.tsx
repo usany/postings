@@ -129,12 +129,18 @@ function Add({ userObj, valuing }: {userObj: object, valuing: number}) {
     <div className='flex flex-col'>
         <div>
             {valuing === 0 &&
-                <div className='flex justify-center border border-sky-500'>
+                // <div className='flex justify-center border border-sky-500'>
+                //     빌리기 카드 등록
+                // </div>
+                <div className='flex justify-start text-2xl p-5'>
                     빌리기 카드 등록
                 </div>
             }
             {valuing === 1 &&
-                <div className='flex justify-center border border-sky-500'>
+                // <div className='flex justify-center border border-sky-500'>
+                //     빌려주기 카드 등록
+                // </div>
+                <div className='flex justify-start text-2xl p-5'>
                     빌려주기 카드 등록
                 </div>
             }

@@ -25,15 +25,7 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
     const [value, setValue] = useState<number>(2);
     const [check, setCheck] = useState<boolean>(false)
     const [scroll, setScroll] = useState<number>(0)
-    // const [sideNavigation, setSideNavigation] = useState(
-    //     {
-    //         display: false,
-    //         scrollLocation: 0
-    //     }
-    // )
-
-    // const ref = useRef(null)
-    // let scrolling = 0
+    
     useEffect(() => {
         if (!check) {
             setTimeout(() => window.scrollTo({
@@ -57,15 +49,12 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
         sides.push(
             'border border-sky-500 rounded-t fixed bottom-0 start-0 end-0'
         )
-        // console.log(
-        //     document.getElementsByClassName('location')[0]
-        // )
     } else {
         sides.push(
-            'fixed left-2/3 w-full flex flex-col location'
+            'fixed flex flex-col location'
         )
         sides.push(
-            'fixed left-2/3 w-full border border-sky-500 rounded-t bottom-0 end-0'
+            'fixed border border-sky-500 rounded-t bottom-0 start-0 end-0'
         )
     }
 
@@ -134,13 +123,11 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                                     <Route path='/postings/profile' Component={() => <Profile isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck} />} />
                                     <Route path='/postings/ranking' Component={() => <Ranking isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck} />} />
                                     <Route path='/postings/specific' Component={() => <Specific isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck} />} />
-                                    {/* <Route path='/posting/sign' Component={() => <Home isLoggedIn={isLoggedIn} userObj={userObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount}/>}/> */}
                                 </Route>
                             ) : (
                                 <Route>
                                     <Route path='/postings/' Component={() => <Home isLoggedIn={isLoggedIn} userObj={{ uid: null }} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck} />} />
                                     <Route path='/postings/specific' Component={() => <Specific isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} value={value} newAccount={newAccount} setNewAccount={setNewAccount} setValue={setValue} counter={counter} setCounter={setCounter} check={check} setCheck={setCheck} />} />
-                                    {/* <Route path='/posting/sign' Component={() => <Home isLoggedIn={isLoggedIn} userObj={{uid: null}} value={1} newAccount={newAccount} setNewAccount={setNewAccount}/>}/> */}
                                 </Route>
                             )
                         }
