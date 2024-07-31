@@ -34,6 +34,7 @@ const Motions = () => {
         { musician: '방탄소년단', title: 'Rain'},
         { musician: 'San E(산이), 로코베리', title: '오늘 날씨 맑음'},
         { musician: 'KCM', title: '오늘도 맑음'},
+        { musician: '디아(Dia)', title: '하루 종일 비가 내렸어'},
     ];
     
     let currentIndex = slides.length
