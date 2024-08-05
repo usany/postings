@@ -18,6 +18,24 @@ function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
         setMessages(newArray)
     })
     }, [])
+    // useEffect(() => {
+    //     messages.map((msg) => {
+    //         if(msg.creatorId === userObj.uid) {
+    //             if(msg.round !== 5) {
+    //                 if (counter.indexOf(msg.id) === -1) {
+    //                     onCounting(msg)
+    //                 }
+    //             }
+    //         }
+    //         else if(msg.connectedId === userObj.uid) {
+    //             if(msg.round !== 5) {
+    //                 if (counter.indexOf(msg.id) === -1) {
+    //                     onCounting(msg)
+    //                 }
+    //             }
+    //         }
+    //     })
+    // }, [])
 
     const onCounting = (msg) => {
         setCounter([
@@ -52,23 +70,25 @@ function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
                                         return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter} setValue={setValue}/>)
                                     }
                                 }
+                                // return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter} setValue={setValue}/>)
                             })}
                         </div>
                     </div>
                     <div className='w-6/12 flex flex-col border border-sky-500 rounded'>
                         <div className='flex justify-center'>승낙 카드</div>
-                            <div className='flex justify-center flex-wrap'>
-                                {messages.map((msg) => {
-                                    if(msg.connectedId === userObj.uid) {
-                                        if (msg.round !== 5) {
-                                            if (counter.indexOf(msg.id) === -1) {
-                                                onCounting(msg)
-                                            }
-                                            return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter} setValue={setValue}/>)
+                        <div className='flex justify-center flex-wrap'>
+                            {messages.map((msg) => {
+                                if(msg.connectedId === userObj.uid) {
+                                    if (msg.round !== 5) {
+                                        if (counter.indexOf(msg.id) === -1) {
+                                            onCounting(msg)
                                         }
+                                        return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter} setValue={setValue}/>)
                                     }
-                                })}
-                            </div>
+                                }
+                                // return(<Message key={msg.id} msgObj={msg} isOwner={msg.creatorId === userObj.uid} userObj={userObj} isLoggedIn={isLoggedIn} counter={counter} setCounter={setCounter} setValue={setValue}/>)
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>

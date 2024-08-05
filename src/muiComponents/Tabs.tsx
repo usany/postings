@@ -73,14 +73,24 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
       setValue(1)
     }
   })
+  let color
+  if (localStorage.theme === 'light') {
+    color = '#cbd5df'
+  } else {
+    color = '#1a202c'
+  }
 
   return (
-    <Box>
-      <Box sx={{ paddingX: '10px', 
+    <div>
+      <div 
+      // sx={{ paddingX: '10px',
+      //   paddingBottom: '100px',  
         // borderBottom: 0, 
         // borderColor: 'divider' 
-        }}>
+        // }}
+        >
         <Tabs
+          sx={{ bgcolor: `${color}`, width: 500 }}
           // textColor="secondary"
           // indicatorColor="secondary"
           value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -88,7 +98,7 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
           <Tab label="빌려주기" {...a11yProps(1)} />
           {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
-      </Box>
+      </div>
       {/* <CustomTabPanel value={value} index={0}>
       Borrow
       </CustomTabPanel>
@@ -98,6 +108,6 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
       {/* <CustomTabPanel value={value} index={2}>
         Item Three
       </CustomTabPanel> */}
-    </Box>
+    </div>
   );
 }

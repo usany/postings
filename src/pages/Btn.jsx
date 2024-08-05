@@ -1,14 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dbservice } from 'src/baseApi/serverbase'
 import { doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import Dialogs from 'src/muiComponents/Dialogs';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
+import Snackbar from '@mui/material/Snackbar';
 
 function Btn({ msgObj, isOwner, uid, displayName, isLoggedIn, num, points, setValue, counter, setCounter }) {
   const [move, setMove] = useState(false)
+  const [snackbarDisplay, setSnackbarDisplay] = useState(false)
 
+  useEffect(() => {
+    if (snackbarDisplay) {
+      setTimeout(() => setSnackbarDisplay(false), 5000)
+    }
+  })
   const onDeleteClick = () => {
     const data = doc(dbservice, `num/${msgObj.id}`)
     deleteDoc(data)
@@ -49,6 +56,7 @@ function Btn({ msgObj, isOwner, uid, displayName, isLoggedIn, num, points, setVa
         updateDoc(data, {round: 1, connectedId: null, connectedName: null});
       }
     }
+    setSnackbarDisplay(true)
   }
   const handleClose = () => {
     setMove(false);
@@ -146,6 +154,13 @@ function Btn({ msgObj, isOwner, uid, displayName, isLoggedIn, num, points, setVa
             </div>
           }
         </div>  
+      }
+      {snackbarDisplay && 
+        <Snackbar 
+          open={true}
+          // autoHideDuration={5000}
+          message="처리되었습니다"
+        />
       }
     </>
   )

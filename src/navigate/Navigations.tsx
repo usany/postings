@@ -36,11 +36,11 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue, scroll, setS
                         navigate('/postings/')
                     }}
                 >
-                    <BottomNavigationAction label={'빌리기'} icon={<ChevronLeft />}/>
-                    <BottomNavigationAction label={'빌리기 목록'} icon={<Checklist />}/>
+                    <BottomNavigationAction label={'빌리기 등록'} icon={<ChevronLeft />}/>
+                    <BottomNavigationAction label={'빌리기 게시판'} icon={<Checklist />}/>
                     <BottomNavigationAction label={'내 상태'} icon={<Badges counter={counter}/>}/>
-                    <BottomNavigationAction label={'빌려주기 목록'} icon={<ChecklistRtl />}/>
-                    <BottomNavigationAction label={'빌려주기'} icon={<ChevronRight/>}/>
+                    <BottomNavigationAction label={'빌려주기 게시판'} icon={<ChecklistRtl />}/>
+                    <BottomNavigationAction label={'빌려주기 등록'} icon={<ChevronRight/>}/>
                 </BottomNavigation>
             }
             {!isLoggedIn && 
@@ -52,9 +52,9 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue, scroll, setS
                         setScroll(0)
                     }}
                 >
-                    <BottomNavigationAction label={'빌리기 목록'} icon={<Checklist />}/>
+                    <BottomNavigationAction label={'빌리기 게시판'} icon={<Checklist />}/>
                     <BottomNavigationAction label={'로그인'} icon={<BeachAccess />}/>
-                    <BottomNavigationAction label={'빌려주기 목록'} icon={<ChecklistRtl />}/>
+                    <BottomNavigationAction label={'빌려주기 게시판'} icon={<ChecklistRtl />}/>
                 </BottomNavigation>
             }
         </div>

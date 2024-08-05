@@ -51,10 +51,10 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue,
                         // setInitial={setInitial}
                     >
                         <div>
-                            <Add userObj={userObj} valuing={0}/>
+                            <Add userObj={userObj} valuing={0} setValue={setValue}/>
                         </div>
                         <div>
-                            <Add userObj={userObj} valuing={1}/>
+                            <Add userObj={userObj} valuing={1} setValue={setValue}/>
                         </div>
                     </SwipeableViews>
                     </div>

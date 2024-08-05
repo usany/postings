@@ -44,14 +44,14 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
     const sides = []
     if (check === false) {
         sides.push(
-            'flex flex-col location'
+            'flex flex-col'
         )
         sides.push(
             'border border-sky-500 rounded-t fixed bottom-0 start-0 end-0'
         )
     } else {
         sides.push(
-            'fixed flex flex-col location'
+            'flex flex-col'
         )
         sides.push(
             'fixed border border-sky-500 rounded-t bottom-0 start-0 end-0'
@@ -80,11 +80,11 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
 
     return (
         <BrowserRouter>
-            <div className={sides[0] + ' location'}>
+            <div className={sides[0]}>
                 <div className='flex flex-row'>
-                    <ClickAwayListener onClickAway={() => {
+                    {/* <ClickAwayListener onClickAway={() => {
                         setCheck(false)
-                    }}>
+                    }}> */}
                         <div id='navigationSelectorOne' className='w-10 pt-5'>
                             <Navigation scroll={scroll} setScroll={setScroll} isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} setMode={setMode}/>
                             <div className='flex'>
@@ -92,7 +92,7 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                                 <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => {
                                     setCheck(!check)
                                     setScroll(prevScrollPos)
-                                    document.getElementsByClassName('location')[0].style.top = `-${prevScrollPos}px`
+                                    // document.getElementsByClassName('location')[0].style.top = `-${prevScrollPos}px`
                                 }} />
                                 :
                                 <Avatar sx={{ bgcolor: blue[500] }} onClick={() => setCheck(!check)} />
@@ -111,7 +111,7 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                             }
                             </div>
                         </div>
-                    </ClickAwayListener>
+                    {/* </ClickAwayListener> */}
                     <div id='navigationSelectorTwo' className='w-full h-15'></div>
                 </div>
                 <div id='contentSelector'>

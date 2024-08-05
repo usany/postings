@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Router from 'src/Router'
+import AskForNotificationPermission from 'src/AskForNotificationPermission'
 import Lotties from 'src/lottiesAnimation/Lotties'
 import { auth } from 'src/baseApi/serverbase'
 import 'src/global.css'
@@ -35,12 +36,14 @@ function App() {
       setInit(true)
     })
   }, [])
-
+  
+  // AskForNotificationPermission()
   return (
     <>
       <ThemeProvider theme={
         mode !== 'dark' ? lightTheme : darkTheme 
       }>
+        <AskForNotificationPermission />
         {init ? <Router isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} newAccount={newAccount} setNewAccount={setNewAccount} setMode={setMode}/> : <Lotties/>}
       </ThemeProvider>
     </>
