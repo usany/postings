@@ -17,7 +17,6 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue,
     // const checking = () => {
     //     setCheck(!check)
     // }
-    
     // useEffect(() => {
     //     onSnapshot(query(doc(dbservice, `members/${userObj.uid}`)), (snapshot) => {
     //         if (isLoggedIn) {
