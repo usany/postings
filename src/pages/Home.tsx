@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
-// import { doc, onSnapshot, query } from 'firebase/firestore';
 import Menu from 'src/pages/Menu'
 import Notice from 'src/pages/Notice'
 import Auth from 'src/pages/Auth'
 import Add from 'src/pages/Add'
-// import Navigations from 'src/navigate/Navigations'
-// import Avatars from 'src/muiComponents/Avatars'
-// import { dbservice } from 'src/baseApi/serverbase'
-// import Navigation from 'src/navigate/Navigation'
 import { SwipeableViews } from "src/navigate/SwipeableViews";
+// import { dbservice } from 'src/baseApi/serverbase'
+// import Avatars from 'src/muiComponents/Avatars'
+// import Navigation from 'src/navigate/Navigation'
+// import Navigations from 'src/navigate/Navigations'
 
 function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue, counter, setCounter }) {
     // const [style, setStyle] = useState<React.CSSProperties>({});
