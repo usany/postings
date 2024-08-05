@@ -77,7 +77,6 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
         // update previous scroll position
         prevScrollPos = currentScrollPos;
     });
-
     return (
         <BrowserRouter>
             <div className={sides[0]}>
