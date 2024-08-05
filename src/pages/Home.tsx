@@ -24,6 +24,7 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue,
     //         }
     //     })
     // }, [])
+    
     useEffect(() => {
         if (value >= 5) {
             setValue(2)
