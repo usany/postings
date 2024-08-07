@@ -64,6 +64,7 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue,
                         index={value-1}
                         onIndexChange={setValue}
                         num={2}
+                        // initial={[1, 3]}
                     >
                         <div>
                             <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue} counter={counter} setCounter={setCounter}/>
@@ -83,6 +84,7 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue,
                         index={value}
                         onIndexChange={setValue}
                         num={0}
+                        // initial={[1, 3]}
                     >
                         <div>
                             <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue}/>
