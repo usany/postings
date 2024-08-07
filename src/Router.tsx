@@ -97,17 +97,23 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                                 :
                                 <Avatar sx={{ bgcolor: blue[500] }} onClick={() => setCheck(!check)} />
                             }
-                            {value === 0 && 
+                            {isLoggedIn && value === 0 && 
                                 <ToggleTabs num={1} valuing={value} setValuing={setValue}/>
                             }
-                            {value === 4 && 
+                            {isLoggedIn && value === 4 && 
                                 <ToggleTabs num={1} valuing={value} setValuing={setValue}/>
                             }
-                            {value === 1 && 
+                            {isLoggedIn && value === 1 && 
                                 <ToggleTabs num={2} valuing={value} setValuing={setValue}/>
                             }
-                            {value === 3 && 
+                            {isLoggedIn && value === 3 && 
                                 <ToggleTabs num={2} valuing={value} setValuing={setValue}/>
+                            }
+                            {!isLoggedIn && value === 0 && 
+                                <ToggleTabs num={0} valuing={value} setValuing={setValue}/>
+                            }
+                            {!isLoggedIn && value === 2 && 
+                                <ToggleTabs num={0} valuing={value} setValuing={setValue}/>
                             }
                             </div>
                         </div>
