@@ -84,29 +84,41 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                     {/* <ClickAwayListener onClickAway={() => {
                         setCheck(false)
                     }}> */}
-                        <div id='navigationSelectorOne' className='w-10 pt-5'>
+                        <div id='navigationSelectorOne' className='w-10 pt-1'>
                             <Navigation scroll={scroll} setScroll={setScroll} isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} setMode={setMode}/>
                             <div className='flex'>
                             {userObj ?
-                                <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => {
-                                    setCheck(!check)
-                                    setScroll(prevScrollPos)
-                                    // document.getElementsByClassName('location')[0].style.top = `-${prevScrollPos}px`
-                                }} />
+                                <div className='px-5 pt-1'> 
+                                    <Avatar alt={userObj.displayName} sx={{ bgcolor: blue[500] }} src='./src' onClick={() => {
+                                        setCheck(!check)
+                                        setScroll(prevScrollPos)
+                                    }} />
+                                </div>
                                 :
-                                <Avatar sx={{ bgcolor: blue[500] }} onClick={() => setCheck(!check)} />
+                                <div className='px-5 pt-1'>
+                                    <Avatar sx={{ bgcolor: blue[500] }} onClick={() => {
+                                        setCheck(!check)
+                                        setScroll(prevScrollPos)
+                                    }} />
+                                </div>
                             }
-                            {value === 0 && 
+                            {isLoggedIn && value === 0 && 
                                 <ToggleTabs num={1} valuing={value} setValuing={setValue}/>
                             }
-                            {value === 4 && 
+                            {isLoggedIn && value === 4 && 
                                 <ToggleTabs num={1} valuing={value} setValuing={setValue}/>
                             }
-                            {value === 1 && 
+                            {isLoggedIn && value === 1 && 
                                 <ToggleTabs num={2} valuing={value} setValuing={setValue}/>
                             }
-                            {value === 3 && 
+                            {isLoggedIn && value === 3 && 
                                 <ToggleTabs num={2} valuing={value} setValuing={setValue}/>
+                            }
+                            {!isLoggedIn && value === 0 && 
+                                <ToggleTabs num={0} valuing={value} setValuing={setValue}/>
+                            }
+                            {!isLoggedIn && value === 2 && 
+                                <ToggleTabs num={0} valuing={value} setValuing={setValue}/>
                             }
                             </div>
                         </div>

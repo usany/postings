@@ -50,6 +50,7 @@ function Navigations({ sides, counter, isLoggedIn, value, setValue, scroll, setS
                     onChange={(event, newValue) => {
                         setValue(newValue)
                         setScroll(0)
+                        navigate('/postings/')
                     }}
                 >
                     <BottomNavigationAction label={'빌리기 게시판'} icon={<Checklist />}/>

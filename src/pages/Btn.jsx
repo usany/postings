@@ -155,7 +155,7 @@ function Btn({ msgObj, isOwner, uid, displayName, isLoggedIn, num, points, setVa
           }
         </div>  
       }
-      {snackbarDisplay && 
+      {isLoggedIn && snackbarDisplay && 
         <Snackbar 
           open={true}
           // autoHideDuration={5000}

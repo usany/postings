@@ -8,7 +8,7 @@ function Badges({ counter }) {
     //     setCounterLength(counter.length)
     //     console.log(counter)
     // })
-    console.log(counter.length)
+    // console.log(counter.length)
     return (
         <Badge badgeContent={counter.length} color="primary">
             <BeachAccess/>

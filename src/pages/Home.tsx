@@ -78,17 +78,32 @@ function Home({ isLoggedIn, userObj, value, newAccount, setNewAccount, setValue,
             </div>
             }
             {!isLoggedIn &&
-                <>
-                    {value === 0 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue}/>
-                    }
+                <div>
+                    {[0, 2].indexOf(value) !== -1 && <div>
+                    <SwipeableViews
+                        index={value}
+                        onIndexChange={setValue}
+                        num={0}
+                        // initial={[1, 3]}
+                    >
+                        <div>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue}/>
+                        </div>
+                        <div>
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4} setValue={setValue}/>
+                        </div>
+                        {/* {value === 0 &&
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={1} setValue={setValue}/>
+                        }
+                        {value === 2 &&
+                            <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4} setValue={setValue}/>
+                        } */}
+                    </SwipeableViews>
+                    </div>}
                     {value === 1 &&
                         <Auth newAccount={newAccount} setNewAccount={setNewAccount} userObj={userObj} valuing={value}/>
                     }
-                    {value === 2 &&
-                        <Notice isLoggedIn={isLoggedIn} userObj={userObj} valuing={4} setValue={setValue}/>
-                    }
-                </>
+                </div>
             }
         </div>
     )

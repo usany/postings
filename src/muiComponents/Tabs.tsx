@@ -38,6 +38,13 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    if (num === 0) {
+      if(newValue === 1) {
+        setValuing(2)
+      } else {
+        setValuing(0)
+      }
+    }
     if (num === 1) {
       if(newValue === 1) {
         setValuing(4)
@@ -73,6 +80,11 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
       setValue(1)
     }
   })
+  useEffect(() => {
+    if (num === 0 && valuing === 2) {
+      setValue(1)
+    }
+  })
   let color
   if (localStorage.theme === 'light') {
     color = '#cbd5df'
@@ -82,15 +94,8 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
 
   return (
     <div>
-      <div 
-      // sx={{ paddingX: '10px',
-      //   paddingBottom: '100px',  
-        // borderBottom: 0, 
-        // borderColor: 'divider' 
-        // }}
-        >
         <Tabs
-          sx={{ bgcolor: `${color}`, width: 500 }}
+          sx={{ bgcolor: `${color}`, width: 500, paddingTop: '0px' }}
           // textColor="secondary"
           // indicatorColor="secondary"
           value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -98,16 +103,6 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
           <Tab label="빌려주기" {...a11yProps(1)} />
           {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
-      </div>
-      {/* <CustomTabPanel value={value} index={0}>
-      Borrow
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-      Lend
-      </CustomTabPanel> */}
-      {/* <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel> */}
     </div>
   );
 }

@@ -12,7 +12,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "web-push": "web-push"
   },
   "dependencies": {
     "@emotion/css": "^11.11.2",
@@ -35,6 +36,9 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "firebase": "^10.5.2",
+    "firebase-admin": "^12.3.0",
+    "firebase-functions": "^5.0.1",
+    "firebase-tools": "^13.15.0",
     "framer-motion": "^11.0.25",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.381.0",
@@ -51,7 +55,8 @@
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
     "unocss": "^0.59.4",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
