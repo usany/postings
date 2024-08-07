@@ -11,15 +11,10 @@
     <!-- <script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script> -->
     <script>
       if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js')
-        // window.addEventListener('load', () => {
-        // })
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js', { scope: '/' })
+        })
       }
-      // if('serviceWorker' in navigator) {
-      //   window.addEventListener('load', () => {
-      //     navigator.serviceWorker.register('./sw.js', { scope: '/' })
-      //   })
-      // }
       // ;(function () {
       //   const prefersDark =
       //     window.matchMedia &&
@@ -30,13 +25,9 @@
       }
     </script>
     <title>Vite + React + TS</title>
-    <script type="module" crossorigin src="/postings/assets/index-Cyg7c4V6.js"></script>
-    <link rel="stylesheet" crossorigin href="/postings/assets/index-BoTOVN6l.css">
-  <link rel="manifest" href="/postings/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/postings/registerSW.js"></script>
-<meta name="theme-color" content="#000000">
-<link rel="icon" href="/postings/favicon.ico" sizes="48x48">
-<link rel="icon" href="/postings/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/postings/apple-touch-icon-180x180.png"></head>
+    <script type="module" crossorigin src="/postings/assets/index-DX047-pZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/postings/assets/index-QFWUEw4d.css">
+  <link rel="manifest" href="/postings/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/postings/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
   </body>
