@@ -76,7 +76,6 @@ function Navigation({ scroll, setScroll, isLoggedIn, userObj, setUserObj, setVal
       {isLoggedIn &&
         <nav
           className='w-full'
-          // className={navigation[0]}
         >
           <div className='flex'>
             <div className='p-5'>
