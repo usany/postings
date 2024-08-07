@@ -82,9 +82,9 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
         <BrowserRouter>
             <div className={sides[0] + ' location'}>
                 <div className='flex flex-row'>
-                    <ClickAwayListener onClickAway={() => {
+                    {/* <ClickAwayListener onClickAway={() => {
                         setCheck(false)
-                    }}>
+                    }}> */}
                         <div id='navigationSelectorOne' className='w-10 pt-5'>
                             <Navigation scroll={scroll} setScroll={setScroll} isLoggedIn={isLoggedIn} userObj={userObj} setUserObj={setUserObj} setValue={setValue} check={check} setCheck={setCheck} setMode={setMode}/>
                             <div className='flex'>
@@ -111,7 +111,7 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
                             }
                             </div>
                         </div>
-                    </ClickAwayListener>
+                    {/* </ClickAwayListener> */}
                     <div id='navigationSelectorTwo' className='w-full h-15'></div>
                 </div>
                 <div id='contentSelector'>

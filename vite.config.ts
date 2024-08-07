@@ -8,10 +8,10 @@ export default defineConfig({
     registerType: 'prompt',
     injectRegister: 'auto',
 
-    pwaAssets: {
-      disabled: false,
-      config: true,
-    },
+    // pwaAssets: {
+    //   disabled: false,
+    //   config: true,
+    // },
 
     manifest: {
       name: "khusan umbrella app",

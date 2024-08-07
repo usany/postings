@@ -80,14 +80,7 @@ export function SwipeableViews({
         const pageWidth =
           currentTarget.scrollWidth / currentTarget.children.length;
         let currentPage
-        if (num === 0) {
-          currentPage = Math.round(currentTarget.scrollLeft / pageWidth);
-          console.log(currentPage)
-          if (currentPage === 1) {
-            currentPage = currentPage+1
-          }
-        }
-        else if (num === 1) {
+        if (num === 1) {
           currentPage = Math.round(currentTarget.scrollLeft / pageWidth);
           if (currentPage === 1) {
             currentPage = currentPage+3
