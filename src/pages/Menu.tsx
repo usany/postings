@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { auth, onSocialClick, dbservice, storage } from 'src/baseApi/serverbase'
 import { collection, query, where, orderBy, addDoc, getDocs, doc, onSnapshot, deleteDoc, updateDoc } from 'firebase/firestore';
 import Message from 'src/pages/Message'
+import Notification from 'src/pages/Notification';
 
 function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
     // const [choose, setChoose] = useState(true);
@@ -53,6 +54,7 @@ function Menu({ isLoggedIn, userObj, counter, setCounter, setValue }) {
             {/* <div className='flex justify-center border border-sky-500'>
                 내 상태
             </div> */}
+            <Notification />
             <div className='flex justify-start text-2xl p-5'>
                 내 상태
             </div>

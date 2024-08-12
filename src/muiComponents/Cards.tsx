@@ -9,6 +9,8 @@ import Btn from 'src/pages/Btn';
 import Chip from '@mui/material/Chip';
 import staticImg from 'src/assets/pwa-512x512.png';
 // import { Fragment } from 'react/jsx-runtime';
+import { getMessaging, getToken } from "firebase/messaging";
+import { auth, onSocialClick, dbservice, storage, messaging } from 'src/baseApi/serverbase'
 
 function Cards({ 
   msgObj,
@@ -47,6 +49,7 @@ function Cards({
   const numbers = Array.from({ length: 10 }, (e, i) => `${i}`)
   const mergedArray = letters.concat(numbers)
   shadowColor = shadowColorArray[mergedArray.indexOf(String(msgObj.id[0]).toUpperCase())%shadowColorArray.length];
+  
 
   return (
     <div className='p-5 max-w-60 min-w-20'>

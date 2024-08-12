@@ -80,8 +80,8 @@ function Navigation({ scroll, setScroll, isLoggedIn, userObj, setUserObj, setVal
         >
           <div className='flex'>
             <div className='p-5'>
-              <div className='flex justify-center'>좋은 날씨네요 {userObj.displayName} 님</div>
-              {isLoggedIn && <div className='flex justify-center'>내 포인트: {points}</div>}
+              <div>좋은 날씨네요 {userObj.displayName} 님</div>
+              {isLoggedIn && <div>내 포인트: {points}</div>}
             </div>
             <Modes colors={colors} setColors={setColors} setMode={setMode}/>
           </div>

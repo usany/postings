@@ -95,7 +95,7 @@ export default function ToggleTabs({ num, valuing, setValuing }) {
   return (
     <div>
         <Tabs
-          sx={{ bgcolor: `${color}`, width: 500, paddingTop: '0px' }}
+          sx={{ bgcolor: `${color}`, width: 500}}
           // textColor="secondary"
           // indicatorColor="secondary"
           value={value} onChange={handleChange} aria-label="basic tabs example">

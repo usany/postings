@@ -51,7 +51,7 @@ const Router = ({ isLoggedIn, userObj, setUserObj, newAccount, setNewAccount, se
         )
     } else {
         sides.push(
-            'flex flex-col'
+            'fixed flex flex-col'
         )
         sides.push(
             'fixed border border-sky-500 rounded-t bottom-0 start-0 end-0'

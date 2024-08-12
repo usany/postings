@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useNavigate, Link, useLocation } from 'react-router-dom'
 import Btn from 'src/pages/Btn';
 import Steppers from 'src/muiComponents/Steppers';
+import Notification from 'src/pages/Notification';
 import Button from '@mui/material/Button';
 import { collection, addDoc, getDocs, doc, onSnapshot, query, orderBy } from 'firebase/firestore';
-import { auth, onSocialClick, dbservice, storage } from 'src/baseApi/serverbase'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import { CardActionArea, CardActions } from '@mui/material';
 import Chip from '@mui/material/Chip';
+import { getMessaging, getToken, onMessage, onBackgroundMessage } from "firebase/messaging";
+import { auth, onSocialClick, dbservice, storage, messaging } from 'src/baseApi/serverbase'
+// import Btn from 'src/pages/Btn';
 
 function Specific({ 
     isLoggedIn,
@@ -30,7 +33,7 @@ function Specific({
       const [num, setNum] = useState(null)
       const [points, setPoints] = useState(null)
       const [deleted, setDeleted] = useState(false)
-
+      
       useEffect(() => {
         onSnapshot(query(collection(dbservice, 'num')), (snapshot) => {
             const newArray = snapshot.docs.map((document) => {
@@ -65,9 +68,6 @@ function Specific({
       navigate('/postings/')
     }
   })
-  // useEffect(() => {
-  //   setStepper(state.msgObj.round-1)
-  // })
   
   const onClick = () => {
     navigate(-1)
@@ -99,7 +99,7 @@ function Specific({
   const numbers = Array.from({ length: 10 }, (e, i) => `${i}`)
   const mergedArray = letters.concat(numbers)
   shadowColor = shadowColorArray[mergedArray.indexOf(String(msgObj.id[0]).toUpperCase())%shadowColorArray.length];
-
+  
   return (
     <div className='p-5'>
     <Card
@@ -184,7 +184,7 @@ function Specific({
         </CardContent>
       {/* </CardActionArea> */}
     </Card>
-
+      <Notification />
     </div>
   )
 }

@@ -1,17 +1,22 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa';
+import { serviceWorkerPlugin } from '@gautemo/vite-plugin-service-worker'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), VitePWA({
+  plugins: [
+    serviceWorkerPlugin({
+      filename: 'firebase-messaging-sw.js',
+    }),
+    react(), VitePWA({
     // registerType: 'autoUpdate', 
     // devOptions: {
     //   enabled: true
     // },
     registerType: 'prompt',
     injectRegister: 'auto',
-
+    filename: 'firebase-messaging-sw.js',
     pwaAssets: {
       disabled: false,
       config: true,

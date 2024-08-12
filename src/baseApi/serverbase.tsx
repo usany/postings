@@ -2,6 +2,8 @@ import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, creat
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getDatabase, ref } from "firebase/database";
+// import { getMessaging } from "firebase/messaging/sw"
+import { getMessaging, getToken, onMessage, onBackgroundMessage } from "firebase/messaging";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -18,18 +20,27 @@ const firebaseConfig = {
   appId: "1:206737336631:web:55648c3ea182e23c3052b2",
   databaseURL: "https://remake-36fe0-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
-const firebaseConfigs = {
-    // ...
-    // The value of `databaseURL` depends on the location of the database
-    databaseURL: "https://remake-36fe0-default-rtdb.asia-southeast1.firebasedatabase.app",
-};
   
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const dbservice = getFirestore(app);
 const storage = getStorage();
-
+const messaging = getMessaging(app);
+// getToken(messaging, {vapidKey: "BC6ZRwx8Ke48uprRA17AlLOqJ8HCMIwIVYLy32evgnACjpf0aH5yxHhkvEe5D8I73kjn69E2jF-bnMLeRbbzRRE"}).then((currentToken) => {
+//     if (currentToken) {
+//         new Notification('Notification permission granted.');
+//     } else {
+//       console.log('No registration token available. Request permission to generate one.');
+//     }
+//   }).catch((err) => {
+//     console.log('An error occurred while retrieving token. ', err);
+//   });
+//   const messages = onMessage(messaging, (payload) => {
+//     console.log('Message received. ', payload);
+//     // ...
+//   });
+  
 const onSocialClick = async (event) => {
     const {
         target: {name},
@@ -71,6 +82,7 @@ const onSocialClick = async (event) => {
     });
 }
 
+
 const oDB = getDatabase(app)
 const oSubscriptionsinDB = ref(oDB)
 // const functions = require('firebase-functions')
@@ -79,4 +91,4 @@ const oSubscriptionsinDB = ref(oDB)
 // const {onRequest} = require("firebase-functions/v2/https");
 // const {onDocumentCreated} = require("firebase-functions/v2/firestore");
 
-export {auth, onSocialClick, dbservice, storage, oSubscriptionsinDB}
+export {auth, onSocialClick, dbservice, storage, oSubscriptionsinDB, messaging }
