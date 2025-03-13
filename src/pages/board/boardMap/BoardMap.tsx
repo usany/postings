@@ -87,7 +87,7 @@ function BoardMap({ mapAccordion, mapAccordionToggle, onMarker, onMarkerTrue, on
     },
     {
       id: "selectedValueTwo",
-      value: "전체",
+      value: "전체 장소",
     },
     {
       id: "selectedValueThree",
